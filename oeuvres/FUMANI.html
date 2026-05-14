@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUMANI</title>
+    <style>
+        * {
+           margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #648994 0%, #66b5d1 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Conteneur principal */
+        .artwork-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f7feff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* Bouton retour */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2c2c2c;
+            color: white;
+            text-decoration: none;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-weight: 500;
+            padding: 12px 24px;
+            margin: 24px 0 0 24px;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .back-button:hover {
+            background: #1a1a1a;
+            transform: translateX(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .back-button::before {
+            content: "←";
+            font-size: 1.2em;
+            transition: transform 0.2s;
+        }
+
+        .back-button:hover::before {
+            transform: translateX(-3px);
+        }
+
+        /* Grille contenu */
+        .artwork-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 48px;
+        }
+
+        /* Section image */
+        .image-section {
+            background: #f2f8fa;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #d4e2e9;
+        }
+
+        .artwork-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease;
+        }
+
+        .artwork-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #4e666b;
+            font-style: italic;
+            border-top: 1px solid #c8dae0;
+            padding-top: 16px;
+            text-align: center;
+        }
+
+        /* Section informations */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .artwork-title {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: #040f3d;
+            letter-spacing: -0.5px;
+            border-left: 5px solid #567487;
+            padding-left: 20px;
+            line-height: 1.2;
+        }
+
+        .artwork-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7a919f;
+            font-weight: 500;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #1e232c;
+        }
+
+        .description p {
+            margin-bottom: 18px;
+        }
+
+        .description strong {
+            color: #5397dc;
+            font-weight: 600;
+        }
+
+        .details-card {
+            background: #e6f3f5;
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-top: 12px;
+        }
+
+        .details-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0c1a21;
+            margin-bottom: 12px;
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .details-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #bedee0;
+            display: flex;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .details-card li:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #254857;
+        }
+
+        .detail-value {
+            color: #2c3e2b;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .artwork-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 32px;
+            }
+
+            .artwork-title {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                margin: 20px 0 0 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .artwork-content {
+                padding: 20px;
+            }
+            
+            .artwork-title {
+                font-size: 1.8rem;
+            }
+            
+            .details-card li {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .detail-label {
+                min-width: auto;
+            }
+        }
+
+        /* Pied de page */
+        .artwork-footer {
+            border-top: 1px solid #d3e1e9;
+            padding: 24px 48px;
+            background: #f7fbfd;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6a7d8a;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="artwork-container">
+    <!-- Bouton de retour à la page d'accueil -->
+    <a href="/index.html" class="back-button">Accueil</a>
+
+    <div class="artwork-content">
+        <!-- Partie gauche : image -->
+        <div class="image-section">
+            <div class="image-frame">
+                <img class="artwork-image" 
+                     src="/images/Fumani.jpeg" 
+                     alt="FUMANI - art traditionnel d'ambiance">
+            </div>
+            <div class="image-caption">
+                 Statuaire funéraire
+            </div>
+        </div>
+        <!-- Partie droite : informations œuvre -->
+        <div class="info-section">
+            <div>
+                <div class="artwork-subtitle">Art traditionnel congolais</div>
+                <h1 class="artwork-title">FUMANI </h1>
+            </div>
+            <div>
+
+            </div>
+
+            <div class="description">
+                <p> La sculpture en stéatite, typique du Bas-Congo, s'est développée sur la rive gauche du fleuve Congo, dans la région de la chaîne montagneuse qui s'étend du Bas-Congo jusque dans la région de Vige en Angola. Le mot <strong>ntadi</strong> (pl.Matadi) signifie <strong>pierre</strong> en kikongo.La ville de Matadi en tire d'ailleurs son nom.</p>
+                <p>La tradition orale raconte que le passage de la statuaire en bois à celle en pierre est l'œuvre d'un forgeron qui, à la recherche de minerais de fer, découvrit une pierre tendre aussi facile à travailler que le bois. Il livra son secret à son chef de clan afin de pouvoir orner les tombes des ancêtres importants de monuments plus durables.</p>
+                
+                <p>La coiffure qui orne la majorité des fumani est la réplique de celle que portaient les chefs kongo ; en fibres tressées, elle était surmontée de dents de léopard. <br> La main sur la joue est un signe de tristesse qui montre l'inquiétude et le souci du chef défunt pour son lignage.</p>
+            
+            </div>
+
+            <div class="details-card">
+                <h3> INFORMATIONS SUR L'ŒUVRE</h3>
+                <ul>
+                    <li><span class="detail-label">Type :</span><span class="detail-value">Statuaire funéraire</span></li>
+                    <li><span class="detail-label">Ethnie / Culture :</span><span class="detail-value">Bas-congo</span></li>
+                    <li><span class="detail-label">Matières :</span><span class="detail-value">Pierre (stéatite)</span></li>
+                    <li><span class="detail-label">Usage :</span><span class="detail-value">Multi-fonction</span></li>
+                    <li><span class="detail-label">Période :</span><span class="detail-value">Art ancestral (transmission orale)</span></li>
+                </ul>
+            </div>
+
+            <div class="details-card">
+                <h3> SIGNIFICATION CULTURELLE</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                Cette statuaire funéraire possède plusieurs fonctions :
+                  <ul>
+                    <li>la statue marquait les frontières des domaines fonciers et identifiait la tombe d'un aîné ;</li>
+                    <li>elle permettait de transmettre aux générations suivantes le souvenir d'un ancêtre, dont la renommée rejaillissait sur ses descendants ;</li>
+                    <li>le fumani évoque la manière dont le responsable d'une famille, d'un lignage ou d'un clan se préoccupe du bien-être des siens.</li>
+                  </ul>  
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="artwork-footer">
+        Collection d'art traditionnel • FUMANI   — Pièce unique
+    </div>
+</div>
+
+</body>
+</html>

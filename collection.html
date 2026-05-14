@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style_collections.css" />
+    <title>Collections</title>
+  </head>
+  <body>
+    <header>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <h1>Mussée national de lubumbashi</h1>
+            <p>Institut des musées nationaux du Congo</p>
+          </div>
+          <ul class="nav-links">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/collection.html" class="active">Collections</a></li>
+            <li><a href="/a-propos.html">À propos</a></li>
+            <li><a href="/historique.html">Historique</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- En-tête -->
+      <section class="page-header">
+        <h1>Nos Collections</h1>
+        <p>
+          Découvrez l'ensemble de notre patrimoine : masques d'ambiance, masques
+          mystiques, statues rituelles et objets d'art traditionnel.
+        </p>
+      </section>
+
+      <!-- Filtres (fonctionnels en JavaScript) -->
+      <section class="filters-section">
+        <div class="filters-container" id="filterButtons">
+          <button class="filter-btn active" data-filter="all">Toutes</button>
+          <button class="filter-btn" data-filter="ambiance">
+            Masques d'ambiance
+          </button>
+          <button class="filter-btn" data-filter="mystique">
+            Masques mystiques
+          </button>
+          <button class="filter-btn" data-filter="statue">
+            Statues & Figures
+          </button>
+          <button class="filter-btn" data-filter="objet">Objets rituels</button>
+        </div>
+      </section>
+
+      <!-- Grille des collections -->
+      <section class="collections-section">
+        <div class="collection-grid" id="collectionGrid">
+          <!-- Carte 1 - Masque Bwali Bukishi (ambiance) -->
+          <div class="art-card" data-type="ambiance">
+            <div class="card-image">
+              <img
+                src="/images/Masque_Bwali_Bukishi.jpeg"
+                alt="Masque Bwali Bukishi"
+              />
+              <div class="card-badge">Pièce maîtresse</div>
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque d'ambiance</div>
+              <h3 class="card-title">Masque Bwali Bukishi</h3>
+              <div class="card-subtitle">Divertissement & Célébration</div>
+              <p class="card-description">
+                Symbole de joie et d'amusement populaire. Porté lors des grandes
+                fêtes de village, des récoltes et des marchés.
+              </p>
+              <div class="card-details">
+                <span> Culture Bwali</span>
+                <span> 45 cm</span>
+                <span> Bois & pigments</span>
+              </div>
+              <a href="/oeuvres/Oeuvre_1.html" class="btn-view"
+                >Voir l'œuvre →</a
+              >
+            </div>
+          </div>
+
+          <!-- Carte 2 - Masque Royal Kuba (mystique) -->
+          <div class="art-card" data-type="mystique">
+            <div class="card-image">
+              <img src="/images/oeuvre_2.jpeg" alt="Masque Royal Kuba" />
+              <div class="card-badge">Rituel sacré</div>
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque mystique</div>
+              <h3 class="card-title">Masque Royal Kuba</h3>
+              <div class="card-subtitle">Pouvoir & Spiritualité</div>
+              <p class="card-description">
+                Destiné aux rois et aux cérémonies d'intronisation. Incarne
+                l'autorité divine et la connexion avec les ancêtres.
+              </p>
+              <div class="card-details">
+                <span> Royaume Kuba</span>
+                <span> 52 cm</span>
+                <span> Perles & cuivre</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 3 - Masque Danseur (ambiance) -->
+          <div class="art-card" data-type="ambiance">
+            <div class="card-image">
+              <img src="/images/oeuvre_3.jpeg" alt="Masque Danseur" />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque d'ambiance</div>
+              <h3 class="card-title">Masque Danseur Yombé</h3>
+              <div class="card-subtitle">Allégresse collective</div>
+              <p class="card-description">
+                Porté par les meilleurs danseurs lors des compétitions et des
+                festivités. Légèreté et agilité.
+              </p>
+              <div class="card-details">
+                <span> Culture Yombé</span>
+                <span> 38 cm</span>
+                <span> Bois clair</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 4 - Fumani -->
+          <div class="art-card" data-type="mystique">
+            <div class="card-image">
+              <img src="/images/Fumani.jpeg" alt="Fumani" />
+              <div class="card-badge">Puissance spirituelle</div>
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque mystique</div>
+              <h3 class="card-title">FUMANI</h3>
+              <div class="card-subtitle">Guérison & Protection</div>
+              <p class="card-description">
+                Masque rituel utilisé par les nganga (guérisseurs) pour
+                canaliser les forces spirituelles et protéger la communauté.
+              </p>
+              <div class="card-details">
+                <span> Bas-Congo</span>
+                <span> Pierre (stéatite)s</span>
+              </div>
+              <a href="/oeuvres/FUMANI.html" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 5 - Statue Ancestrale (statue) -->
+          <div class="art-card" data-type="statue">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1603201667141-5a2d4c673378?q=80&w=1975&auto=format"
+                alt="Statue ancestrale"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Statue & Figure</div>
+              <h3 class="card-title">Statue Ancestrale</h3>
+              <div class="card-subtitle">Mémoire des origines</div>
+              <p class="card-description">
+                Représentation des ancêtres fondateurs. Conservée dans les lieux
+                sacrés et consultée avant les grandes décisions.
+              </p>
+              <div class="card-details">
+                <span>📍 Dogon</span>
+                <span>📏 68 cm</span>
+                <span>🌳 Bois sacré</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 6 - Coupe à offrandes (objet) -->
+          <div class="art-card" data-type="objet">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1611486212557-88f5f5db9d4d?q=80&w=1974&auto=format"
+                alt="Coupe rituelle"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Objet rituel</div>
+              <h3 class="card-title">Coupe à Offrandes</h3>
+              <div class="card-subtitle">Libations & Sacrifices</div>
+              <p class="card-description">
+                Utilisée lors des cérémonies pour présenter les offrandes aux
+                ancêtres et aux divinités. Sculptée d'un seul bloc.
+              </p>
+              <div class="card-details">
+                <span>📍 Luba</span>
+                <span>📏 32 cm</span>
+                <span>🥣 Bois & kaolin</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 7 - Masque Crête (ambiance) -->
+          <div class="art-card" data-type="ambiance">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1598971861713-54c16f1a357f?q=80&w=1974&auto=format"
+                alt="Masque crête"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque d'ambiance</div>
+              <h3 class="card-title">Masque Crête Bwa</h3>
+              <div class="card-subtitle">Fierté & Élégance</div>
+              <p class="card-description">
+                Masque orné d'une haute crête. Symbole de fierté masculine et de
+                bravoure. Porté lors des compétitions de danse.
+              </p>
+              <div class="card-details">
+                <span>📍 Bwa</span>
+                <span>📏 85 cm</span>
+                <span>🎨 Pigments rouges</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 8 - Masque Funéraire (mystique) -->
+          <div class="art-card" data-type="mystique">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1614732485709-2aa1dd6a6ae0?q=80&w=1974&auto=format"
+                alt="Masque funéraire"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque mystique</div>
+              <h3 class="card-title">Masque Funéraire Fang</h3>
+              <div class="card-subtitle">Voyage vers l'au-delà</div>
+              <p class="card-description">
+                Accompagnait les défunts lors des rites funéraires. Protégeait
+                l'âme durant son voyage vers le monde des ancêtres.
+              </p>
+              <div class="card-details">
+                <span>📍 Fang</span>
+                <span>📏 42 cm</span>
+                <span>⚰️ Bois patiné</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 9 - Statue Féminine (statue) -->
+          <div class="art-card" data-type="statue">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1572061481440-28dbae776dac?q=80&w=2070&auto=format"
+                alt="Statue féminine"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Statue & Figure</div>
+              <h3 class="card-title">Statue Féminine Pende</h3>
+              <div class="card-subtitle">Fécondité & Maternité</div>
+              <p class="card-description">
+                Symbole de fertilité et de protection maternelle. Offerte aux
+                jeunes mariées pour favoriser la descendance.
+              </p>
+              <div class="card-details">
+                <span>📍 Pende</span>
+                <span>📏 55 cm</span>
+                <span>🤰 Perles de verre</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+
+          <!-- Carte 10 - Tambour rituel (objet) -->
+          <div class="art-card" data-type="objet">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=2070&auto=format"
+                alt="Tambour rituel"
+              />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Objet rituel</div>
+              <h3 class="card-title">Tambour Parleur</h3>
+              <div class="card-subtitle">Communication & Rythme</div>
+              <p class="card-description">
+                Instrument de communication utilisé pour transmettre des
+                messages à travers les villages et rythmer les cérémonies.
+              </p>
+              <div class="card-details">
+                <span>📍 Ashanti</span>
+                <span>📏 65 cm</span>
+                <span>🥁 Peau & bois</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Institut des musées nationaux du Congo</h4>
+          <p>Préservation et valorisation du patrimoine Congolais.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <p><a href="collections.html">Accueil</a></p>
+          <p><a href="/collection.html">Collections</a></p>
+          <p><a href="/a-propos.html">A propos</a></p>
+          <p><a href="/historique.html">Historique</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Av. du Mussée, Lubumbashi</p>
+          <p>+243 857 779 998</p>
+          <p>contact@museedelubumbashi.org</p>
+        </div>
+      </div>
+      <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
+    </footer>
+    !-- Script pour les filtres -->
+    <script>
+      // Filtrage des cartes par type
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".art-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Retirer la classe active de tous les boutons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Ajouter la classe active au bouton cliqué
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          cards.forEach((card) => {
+            if (
+              filterValue === "all" ||
+              card.getAttribute("data-type") === filterValue
+            ) {
+              card.style.display = "block";
+              // Animation d'apparition
+              card.style.animation = "fadeIn 0.4s ease";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Animation fadeIn
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .art-card {
+            animation: fadeIn 0.4s ease;
+        }
+    `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
