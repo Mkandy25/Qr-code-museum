@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   background: linear-gradient(135deg, #e8d8c0 0%, #d4c4a8 100%);
   font-family: "Georgia", "Times New Roman", serif;
