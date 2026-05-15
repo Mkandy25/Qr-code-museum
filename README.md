@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # QR Code Museum Project
 
 This project aims to improve the museum experience by integrating QR codes next to artworks.
@@ -24,8 +25,10 @@ To provide a more interactive, autonomous, and modern way to explore museums wit
 
 - HTML
 - CSS
-- JavaScript
-=======
+- # JavaScript
+
 # Qr-code-museum
+
 Interactive museum project using QR codes to access detailed information about artworks via a web page.
->>>>>>> b2e4d319920ce49367e1a258c8d14b5193e9199c
+
+> > > > > > > b2e4d319920ce49367e1a258c8d14b5193e9199c
