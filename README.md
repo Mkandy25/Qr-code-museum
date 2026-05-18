@@ -25,7 +25,7 @@ To provide a more interactive, autonomous, and modern way to explore museums wit
 
 - HTML
 - CSS
-- # JavaScript
+- JavaScript
 
 # Qr-code-museum
 
