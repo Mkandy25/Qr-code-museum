@@ -35,14 +35,12 @@
         </p>
       </section>
 
-      <!-- Filtres (fonctionnels en JavaScript) -->
+      <!-- Filtres -->
       <section class="filters-section">
         <div class="filters-container" id="filterButtons">
-          <button class="filter-btn active" data-filter="all">Toutes</button>
-          <button class="filter-btn" data-filter="ambiance">Masques</button>
-          <button class="filter-btn" data-filter="mystique">
-            Masques mystiques
-          </button>
+          <button class="filter-btn active" data-filter="toutes">Toutes</button>
+          <button class="filter-btn" data-filter="masque">Masques</button>
+          <button class="filter-btn" data-filter="ambiance">Ambiance</button>
           <button class="filter-btn" data-filter="statue">
             Statues & Figures
           </button>
@@ -54,13 +52,12 @@
       <section class="collections-section">
         <div class="collection-grid" id="collectionGrid">
           <!-- Carte 1 - Masque Bwali Bukishi (ambiance) -->
-          <div class="art-card" data-type="ambiance">
+          <div class="art-card" data-type="masque">
             <div class="card-image">
               <img
                 src="/images/Masque_Bwali_Bukishi.jpeg"
                 alt="Masque Bwali Bukishi"
               />
-              <div class="card-badge">Pièce maîtresse</div>
             </div>
             <div class="card-content">
               <div class="card-category">Masque d'ambiance</div>
@@ -81,10 +78,9 @@
           </div>
 
           <!-- oeuvre_2 -->
-          <div class="art-card" data-type="mystique">
+          <div class="art-card" data-type="masque">
             <div class="card-image">
               <img src="/images/oeuvre_2.jpeg" alt="Masque Royal Kuba" />
-              <div class="card-badge">Rituel sacré</div>
             </div>
             <div class="card-content">
               <div class="card-category">Masque mystique</div>
@@ -104,12 +100,12 @@
           </div>
 
           <!-- Carte 3 - Masque Danseur (ambiance) -->
-          <div class="art-card" data-type="ambiance">
+          <div class="art-card" data-type="masque">
             <div class="card-image">
               <img src="/images/oeuvre_3.jpeg" alt="Masque Danseur" />
             </div>
             <div class="card-content">
-              <div class="card-category">Masque d'ambiance</div>
+              <div class="card-category">Masque</div>
               <h3 class="card-title">Masque Danseur Yombé</h3>
               <div class="card-subtitle">Allégresse collective</div>
               <p class="card-description">
@@ -129,7 +125,6 @@
           <div class="art-card" data-type="statue">
             <div class="card-image">
               <img src="/images/Fumani.jpeg" alt="Fumani" />
-              <div class="card-badge">Puissance spirituelle</div>
             </div>
             <div class="card-content">
               <div class="card-category">Sculpure</div>
@@ -152,7 +147,7 @@
           </div>
 
           <!-- Carte 5 - Tabouret du chef -->
-          <div class="art-card" data-type="ambiance">
+          <div class="art-card" data-type="objet">
             <div class="card-image">
               <img
                 src="/images/Tabouret de chef.jpeg"
@@ -178,7 +173,7 @@
           </div>
 
           <!-- Carte 6 - Coupe à offrandes (objet) -->
-          <div class="art-card" data-type="Masque">
+          <div class="art-card" data-type="masque">
             <div class="card-image">
               <img src="/images/Pwoom.jpeg" alt="Masque Pwoom" />
             </div>
@@ -228,14 +223,14 @@
             </div>
           </div>
 
-          <!-- Carte 8 - Masque Funéraire (mystique) -->
-          <div class="art-card" data-type="mystique">
+          <!-- Carte 8 - Mwana_pwo -->
+          <div class="art-card" data-type="Masque">
             <div class="card-image">
-              <img src="/images/Masque Cihongo.jpeg" alt="Masque Cihongo" />
+              <img src="/images/Masque Mwana Pwo.jpeg" alt="Masque Cihongo" />
             </div>
             <div class="card-content">
-              <div class="card-category">Masque Cihongo</div>
-              <h3 class="card-title">Masque Funéraire Fang</h3>
+              <div class="card-category">masque</div>
+              <h3 class="card-title">Mwana_pwo</h3>
               <div class="card-subtitle">Voyage vers l'au-delà</div>
               <p class="card-description">
                 Accompagnait les défunts lors des rites funéraires. Protégeait
@@ -245,16 +240,16 @@
                 <span> Fang</span>
                 <span> 42 cm</span>
               </div>
-              <a href="/oeuvres/Masque_Cihongo.html" class="btn-view"
+              <a href="/oeuvres/Mwana_Pwo.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- Carte 9 - Statue Féminine (statue) -->
-          <div class="art-card" data-type="statue">
+          <!-- Carte 9 - Poterie Kongo -->
+          <div class="art-card" data-type="objet">
             <div class="card-image">
-              <img src="/images/Poterie_kongo.jpeg" alt="Statue féminine" />
+              <img src="/images/Poterie_kongo.jpeg" alt="Poterie_kongo" />
             </div>
             <div class="card-content">
               <div class="card-category">Statue & Figure</div>
@@ -274,10 +269,10 @@
             </div>
           </div>
 
-          <!-- Carte 10 - Nabo (objet) -->
-          <div class="art-card" data-type="objet">
+          <!-- Carte 10 - Nabo  -->
+          <div class="art-card" data-type="statue">
             <div class="card-image">
-              <img src="/images/Statue_Nabo.jpeg" alt="Tambour rituel" />
+              <img src="/images/Statue_Nabo.jpeg" alt="Statue_Nabo" />
             </div>
             <div class="card-content">
               <div class="card-category">Objet rituel</div>
@@ -292,6 +287,29 @@
                 <span> Peau & bois</span>
               </div>
               <a href="/oeuvres/STATUE NABO.html" class="btn-view"
+                >Voir l'œuvre →</a
+              >
+            </div>
+          </div>
+          <!-- Carte 11 - Maque Mwana_pwo -->
+          <div class="art-card" data-type="masque">
+            <div class="card-image">
+              <img src="/images/Masque Cihongo.jpeg" alt="Masque Danseur" />
+            </div>
+            <div class="card-content">
+              <div class="card-category">Masque</div>
+              <h3 class="card-title">Masque Danseur Yombé</h3>
+              <div class="card-subtitle">Allégresse collective</div>
+              <p class="card-description">
+                Porté par les meilleurs danseurs lors des compétitions et des
+                festivités. Légèreté et agilité.
+              </p>
+              <div class="card-details">
+                <span> Culture Yombé</span>
+                <span> 38 cm</span>
+                <span> Bois clair</span>
+              </div>
+              <a href="/oeuvres/Masque_Cihongo.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>

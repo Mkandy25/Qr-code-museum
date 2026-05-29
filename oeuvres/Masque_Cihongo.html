@@ -1,271 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Masques Tshokwe - Musée</title>
-    <style>
-         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style_oeuvre_bleu.css">
+    <title> Cihongo</title>
+</head>
+<body>
+     <div class="artwork-container">
+      <!-- Bouton de retour à la page d'accueil -->
+      <a href="/collection.html" class="back-button">Collection</a>
 
-      body {
-        background: linear-gradient(135deg, #e8d8c0 0%, #d4c4a8 100%);
-        font-family: "Georgia", "Times New Roman", serif;
-        min-height: 100vh;
-        padding: 40px 20px;
-      }
-
-      /* Conteneur principal */
-      .artwork-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: #fffef7;
-        border-radius: 24px;
-        box-shadow:
-          0 20px 40px rgba(0, 0, 0, 0.1),
-          0 5px 12px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-        transition: transform 0.3s ease;
-      }
-
-      /* Bouton retour */
-      .back-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #2c2c2c;
-        color: white;
-        text-decoration: none;
-        font-family: "Segoe UI", system-ui, sans-serif;
-        font-weight: 500;
-        padding: 12px 24px;
-        margin: 24px 0 0 24px;
-        border-radius: 40px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        letter-spacing: 0.5px;
-      }
-
-      .back-button:hover {
-        background: #1a1a1a;
-        transform: translateX(-4px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .back-button::before {
-        content: "←";
-        font-size: 1.2em;
-        transition: transform 0.2s;
-      }
-
-      .back-button:hover::before {
-        transform: translateX(-3px);
-      }
-
-      /* Grille contenu */
-      .artwork-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px;
-        padding: 48px;
-      }
-
-      /* Section image */
-      .image-section {
-        background: #faf8f2;
-        border-radius: 20px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .image-frame {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        border-radius: 16px;
-        overflow: hidden;
-        background: #e9e2d4;
-      }
-
-      .artwork-image {
-        width: 100%;
-        max-width: 450px;
-        height: auto;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        transition: transform 0.4s ease;
-      }
-
-      .artwork-image:hover {
-        transform: scale(1.02);
-      }
-
-      .image-caption {
-        margin-top: 20px;
-        font-size: 0.9rem;
-        color: #6b5a4e;
-        font-style: italic;
-        border-top: 1px solid #e0d6c8;
-        padding-top: 16px;
-        text-align: center;
-      }
-
-      /* Section informations */
-      .info-section {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .artwork-title {
-        font-size: 2.8rem;
-        font-weight: 400;
-        color: #3a2c24;
-        letter-spacing: -0.5px;
-        border-left: 5px solid #b87c4f;
-        padding-left: 20px;
-        line-height: 1.2;
-      }
-
-      .artwork-subtitle {
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #9b7b5c;
-        font-weight: 500;
-        font-family: "Segoe UI", sans-serif;
-      }
-
-      .description {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #2c241e;
-      }
-
-      .description p {
-        margin-bottom: 18px;
-      }
-
-      .description strong {
-        color: #b87c4f;
-        font-weight: 600;
-      }
-
-      .details-card {
-        background: #f5efe6;
-        border-radius: 20px;
-        padding: 20px 24px;
-        margin-top: 12px;
-      }
-
-      .details-card h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #4a3729;
-        margin-bottom: 12px;
-        font-family: "Segoe UI", sans-serif;
-        letter-spacing: 1px;
-      }
-
-      .details-card ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .details-card li {
-        padding: 8px 0;
-        border-bottom: 1px solid #e0cfbe;
-        display: flex;
-        gap: 12px;
-        font-size: 0.95rem;
-      }
-
-      .details-card li:last-child {
-        border-bottom: none;
-      }
-
-      .detail-label {
-        font-weight: 600;
-        min-width: 100px;
-        color: #6b4c35;
-      }
-
-      .detail-value {
-        color: #2c3e2b;
-      }
-
-      /* Responsive */
-      @media (max-width: 850px) {
-        .artwork-content {
-          grid-template-columns: 1fr;
-          gap: 32px;
-          padding: 32px;
-        }
-
-        .artwork-title {
-          font-size: 2rem;
-        }
-
-        .back-button {
-          margin: 20px 0 0 20px;
-        }
-      }
-
-      @media (max-width: 550px) {
-        .artwork-content {
-          padding: 20px;
-        }
-
-        .artwork-title {
-          font-size: 1.8rem;
-        }
-
-        .details-card li {
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .detail-label {
-          min-width: auto;
-        }
-      }
-
-      /* Pied de page */
-      .artwork-footer {
-        border-top: 1px solid #e9dfd3;
-        padding: 24px 48px;
-        background: #fdfbf7;
-        text-align: center;
-        font-size: 0.8rem;
-        color: #8a7a6a;
-        font-family: "Segoe UI", sans-serif;
-    </style>
-  </head>
-  <body class="artwork-contairer">
-    <header>
-      <div class="artwork-container">
-    <!-- Bouton de retour à la page collection -->
-    <a href="/collection.html" class="back-button">Collection</a>
-    </header>
-    <main>
-       <div class="artwork-content">
+    
+<div class="artwork-content">
         <!-- Partie gauche : image -->
         <div class="image-section">
             <div class="image-frame">
                 <img class="artwork-image" 
                      src="/images/Masque Cihongo.jpeg" 
-                     alt="Masque Mwana Pwo - Tshokwe">
+                     alt="Masque Cihongo - art traditionnel tshokwe">
             </div>
             <div class="image-caption">
-                 Masque cérémoniel • Danse lors du retour des jeunes au village à la fin du mukanda 
+                 Masque de chefferie • porter par le chef ou l'un de ses fils. 
             </div>
         </div>
 
@@ -273,23 +29,26 @@
         <div class="info-section">
             <div>
                 <div class="artwork-subtitle">Art traditionnel Congolais</div>
-                <h1 class="artwork-title">Masque Mwana Pwo</h1>
+                <h1 class="artwork-title">Masque Cihongo</h1>
             </div>
 
             <div class="description">
-               <p><strong>Signification culturelle :</strong> Symbolise la beauté idéalisée, la mère mythique et l'ancêtre protectrice veillant sur la fertilité du groupe. Bien que féminin, le masque est porté par un homme.</p>
-                <p>Les Tshokwe, comme beaucoup d'autres populations du Sud-Ouest de la RDC, pratiquent le rite de circoncision appelé <em>mukanda</em>. Les jeunes adolescents sont emmenés dans un camp situé en brousse où ils sont circoncis. Ils y séjournent durant plusieurs mois, encadrés par des instructeurs (actuellement deux mois qui correspondent aux vacances scolaires). Des épreuves leur permettent d'accéder au rang d'initié et de revenir au village avec un nouveau statut : celui d'homme adulte et responsable.</p>
-                <p>Le masque <em>mwana pwo</em> n'accompagnait pas les jeunes garçons au sein de l'enclos initiatique, mais il dansait à la fin de leur séjour en brousse, lors de leur retour au village. Mwana pwo représente une jeune femme morte prématurément et en idéalise la beauté et les qualités. Les yeux fermés évoquent cette ancêtre défunte qui veille sur la fertilité de ses descendants. Son costume de danse comporte des seins et sa chorégraphie caricature les attitudes féminines.</p>
-                <p>À leur puberté, les jeunes filles étaient également initiées lors du rituel appelé <em>ukele</em>.</p>
+               <p><strong>Signification culturelle :</strong> Cihongo est un masque porté traditionnellement par le chef ou l'un de ses fils. Il était gardé dans un lieu secret.
+                 Selon certaines sources, Cihongo pourrait évoquer une plante de plaine, dont le bulbe est utilisé en pharmacopée traditionnelle, et terminée par une ombelle sphérique, ombelle qui serait représentée par la coiffure du masque, absente ici, et qui était surmontée de plumes disposées en large éventail.</p>
+                 Le Cihongo était porté par le chef quand celui-ci dansait pour collecter les impôts de village en village. En échange le chef assurait la paix et la prospérité.
+                 La barbe exprime la sagesse d'un homme mûr. Son front est orné du motif <em>cingelyengelye</em>, typique des masques tshokwe.
+                 Le costume était constitué d'un maillot tressé auquel s'ajoutait une large jupe à bascule, en fibres.
+               </p>
+           
             </div>
 
             <div class="details-card">
                 <h3> INFORMATIONS SUR L'ŒUVRE</h3>
                 <ul>
-                    <li><span class="detail-label">Type :</span><span class="detail-value">Masque cérémoniel</span></li>
+                    <li><span class="detail-label">Type :</span><span class="detail-value">Masque du pouvoir ou de chefferie</span></li>
                     <li><span class="detail-label">Ethnie / Culture :</span><span class="detail-value">Tshokwe</span></li>
                     <li><span class="detail-label">Matières :</span><span class="detail-value">Bois sculpté, pigments naturels, fibres végétales</span></li>
-                    <li><span class="detail-label">Usage :</span><span class="detail-value">Danse lors du retour des jeunes au village (fin du mukanda)</span></li>
+                    <li><span class="detail-label">Usage :</span><span class="detail-value">Porter par le chef ou son fils lors de la danse de village en village pour collecter les impots; en échange le chef assure la paix et la prospérité.</span></li>
                     <li><span class="detail-label">Période :</span><span class="detail-value">Art ancestral (transmission orale)</span>Au milieu du XXe siècle</li>
                 </ul>
             </div>
@@ -297,14 +56,19 @@
             <div class="details-card">
                 <h3> SIGNIFICATION CULTURELLE</h3>
                 <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
-                 Symbolise la beauté idéalisée, la mère mythique et l'ancetre protectrice veillant sur la fertilité du groupe. 
+                Symbolise l'autorité, le de sagesse et la prospérité garantie par le chef.
                 </p>
             </div>
         </div>
     </div>
 
     <div class="artwork-footer">
-        Collection d'art Congolais • Masque Mwana Pwo — Pièce unique
+        Collection d'art Congolais • Masque Cihongo — Pièce unique
     </div>
 </div>
+    </main>
+  </body>
+</html>
 
+</body>
+</html>

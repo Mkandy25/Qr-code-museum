@@ -5,19 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Musée National de Lubumbashi — Œuvre historique | Exposition Louvre</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: #9b8a7a; /* fond de galerie sombre, rappel des murs du Louvre */
-            font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
-            color: #4e3a22;
-            line-height: 1.55;
-            padding: 2rem 1rem;
-        }
+body {
+  background: #9b8a7a; /* fond de galerie sombre, rappel des murs du Louvre */
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  color: #4e3a22;
+  line-height: 1.55;
+  padding: 2rem 1rem;
+}
+
+/* Navigation */
+.navbar {
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo h1 {
+  color: #e8c9a0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.logo p {
+  color: #9b8a7a;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #f0ebe3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e8c9a0;
+}
+
 
         /* Conteneur principal comme une toile tendue */
         .louvre-frame {
@@ -38,15 +91,6 @@
             background: linear-gradient(to bottom, #fff9ef, #f9f0e0);
         }
 
-        .institution {
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-weight: 400;
-            color: #9b7b4c;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            margin-bottom: 0.75rem;
-        }
 
         h1 {
             font-size: 3.2rem;
@@ -59,14 +103,6 @@
             border-bottom: 1px solid #d4c29b;
             display: inline-block;
             padding-bottom: 0.3rem;
-        }
-
-        .subhead {
-            font-size: 1rem;
-            font-style: italic;
-            color: #6f5a3e;
-            margin-top: 0.5rem;
-            font-weight: 300;
         }
 
         /* Oeuvre principale — le texte devient "l'œuvre" comme un panneau historique */
@@ -118,31 +154,9 @@
             font-family: 'Times New Roman', serif;
         }
 
-        /* Note de bas de page / cartel */
-        .cartel {
-            margin-top: 2rem;
-            padding-top: 1.2rem;
-            border-top: 1px dashed #d6c8ae;
-            font-size: 0.8rem;
-            font-family: 'Inter', sans-serif;
-            color: #6e5a41;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    
 
-        .ref {
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        .ref span {
-            font-weight: 400;
-            font-family: monospace;
-            background: #efe4d2;
-            padding: 0.2rem 0.4rem;
-        }
-
+     
         /* galerie d’ambiance : trois médaillons d'époque (évocation) */
         .ambiance-gallery {
             display: flex;
@@ -202,21 +216,48 @@
             box-shadow: inset 0 0 0 1px #fff9ef, 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.7rem;
-            font-family: monospace;
-            letter-spacing: 0.5px;
-            background: #2f2a24;
-            color: #cfc3ae;
-            border-top: 2px solid #c1a16b;
-        }
+   /* Footer */
+footer {
+  background: #1a1a1a;
+  color: #b0a088;
+  padding: 3rem 2rem 1.5rem;
+}
 
-        footer a {
-            color: #e2cfaa;
-            text-decoration: none;
-        }
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  color: #e8c9a0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #9b8a7a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.footer-col a:hover {
+  color: #e8c9a0;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #2c2c2c;
+  font-size: 0.75rem;
+}
+
+
 
         /* responsive: colonne unique sur mobile */
         @media (max-width: 780px) {
@@ -256,18 +297,33 @@
             border-radius: 1px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
+  
 <body>
+     <header>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <h1>Mussée national de lubumbashi</h1>
+            <p>Institut des musées nationaux du Congo</p>
+          </div>
+          <ul class="nav-links">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/collection.html" class="active">Collections</a></li>
+            <li><a href="/a-propos.html">À propos</a></li>
+            <li><a href="/historique.html">Historique</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
 <div class="musée de lubumbashi">
     <div class=" musée de lubumbashi">
-        <div class="institution">MUSÉE De lubumbashi | SALLE D'AFRIQUE CENTRALE & HISTOIRE</div>
         <h1>Chronique du Musée de Lubumbashi</h1>
-        <div class="subhead">« Une odyssée congolaise entre guerre, résilience et renaissance »</div>
     </div>
 
     <div class="oeuvre-container">
-        <div class="legend">▸ Œuvre historique in situ — Parcours permanent "Mémoires du Katanga"</div>
+        <div class="legend">▸ Une odyssée congolaise entre guerre, résilience et renaissance</div>
         <div class="historical-text">
             <p class="dropcap"><span style="font-size: 1.5rem; font-weight: bold;">E</span>n 1937, l’anthropologue Francis Cabu ouvrait à son domicile de Lubumbashi une exposition Archéologique. Cet événement inaugura la naissance du présent musée de Lubumbashi. Par la suite, grâce aux nombreuses missions entreprises, les collections se développèrent à d’autres diversités notamment L’Ethnographie, Minéralogie, géologie, et Entomologie. Cabu eut finalement, le 10 janvier 1946, le bonheur d’exposer ses collections de façon définitive dans ce qui fut baptisé officiellement Musée Léopold II et par le public Congolais : Musée Cabu.</p>
 
@@ -277,10 +333,7 @@
 
             <p>Cela permit d'exécuter des grands travaux de restauration des bâtiments (la réparation des toitures en particulier), d'effectuer plusieurs campagnes de fouilles archéologiques et de procéder à de nombreuses récoltes Ethnographiques. Les réserves furent réaménagées plus ou moins correctement durant la même période, un autre acquis des plus importants de cette époque fut la mise à la disposition du public de cinq salles d’expositions permanente consacrées les unes à l'Ethnographie, les autres à l'Archéologie et à l'Entomologie. Suite à l’Africanisation des cadres de l’IMNZ depuis 1986 à nos jours le MNL est dirigé par des Congolais. Aujourd’hui, le Musée National de Lubumbashi est un phare de fierté culturelle dans la région, préservant et présentant l’histoire et le patrimoine riches et diversifiés de la RDC. Il sert de lien vital entre le passé et le présent, offrant aux visiteurs un voyage immersif à travers les multiples facettes de la culture congolaise.</p>
         </div>
-        <div class="cartel">
-            <div class="ref"><span>MNL 2024 / Donation Cabu — Legs De Poerk</span></div>
-            <div class="ref">Salle 7 – Parcours "Mémoires du Katanga" · Collection permanente</div>
-        </div>
+        
     </div>
 
    
@@ -290,11 +343,34 @@
         « En dépit des guerres et des pillages, le Musée National de Lubumbashi demeure une mémoire vivante. Aujourd’hui conservé par des équipes congolaises, il incarne la résilience et le rayonnement des cultures de la RDC. »<br>
         — Extrait du livret d’exposition "Renaissance d’un Musée", 2022.
     </div>
-
+        <!-- Footer -->
     <footer>
-        <span>Musée National de Lubumbashi , Salle d’Afrique centrale et Histoire. Reproduction autorisée à des fins éducatives. </span><br>
-        <span>Œuvre historique reconstituée d'après les archives et récits du MNL · 2026 · hommage à Francis Cabu et aux conservateurs successifs.</span>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Institut des musées nationaux du Congo</h4>
+          <p>Préservation et valorisation du patrimoine Congolais.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <p><a href="/index.html">Accueil</a></p>
+          <p><a href="/collection.html">Collections</a></p>
+          <p><a href="/a-propos.html">A propos</a></p>
+          <p><a href="/historique.html">Historique</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Av. du Mussée, Lubumbashi</p>
+          <p>+243 857 779 998</p>
+          <p>contact@museedelubumbashi.org</p>
+        </div>
+      </div>
+      <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
     </footer>
 </div>
+</main>
 </body>
 </html>
