@@ -10,7 +10,7 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-  background-color: #faf8f4;
+  background-color: whitesmoke;
   color: #2c241e;
   line-height: 1.5;
 }
@@ -69,7 +69,9 @@ body {
 
 /* En-tête de page */
 .page-header {
-  background: linear-gradient(135deg, #3a2c24 0%, #5c4535 100%);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/images/motifs-tissus-africains.avif");
   color: white;
   padding: 4rem 2rem;
   text-align: center;
@@ -83,7 +85,7 @@ body {
 }
 
 .page-header p {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   max-width: 700px;
   margin: 0 auto;
   opacity: 0.9;
@@ -328,6 +330,131 @@ footer {
   margin-top: 2rem;
   border-top: 1px solid #2c2c2c;
   font-size: 0.75rem;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #e8c9a0;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animation du hamburger en "X" lorsque ouvert */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #e8c9a0;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Barre de recherche */
+.search-container {
+  max-width: 500px;
+  margin: 1.5rem auto 0 auto;
+  text-align: center;
+}
+#searchInput {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #d4c4b0;
+  border-radius: 40px;
+  font-size: 1rem;
+  background: white;
+  outline: none;
+  transition: 0.2s;
+}
+#searchInput:focus {
+  border-color: #b87c4f;
+  box-shadow: 0 0 0 2px rgba(184, 124, 79, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+}
+
+/* Masquer les liens par défaut sur mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .nav-links li {
+    margin: 0;
+  }
 }
 
 @media (max-width: 768px) {

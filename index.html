@@ -16,6 +16,20 @@
             <h1>Mussée National de Lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
+          <!-- Bouton hamburger pour mobile -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/collection.html" class="active">Collections</a></li>
+      <li><a href="/a-propos.html">À propos</a></li>
+      <li><a href="/historique.html">Historique</a></li>
+    </ul>
+  </div>
+</nav>
           <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="collection.html">Collections</a></li>
@@ -132,5 +146,26 @@
       </div>
       <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
     </footer>
+
+    <script>
+    // Menu burger
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Fermer le menu après un clic sur un lien
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+}
+</script>
   </body>
 </html>

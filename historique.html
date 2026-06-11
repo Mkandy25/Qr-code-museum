@@ -4,300 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Musée National de Lubumbashi — Œuvre historique | Exposition Louvre</title>
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-  background: #9b8a7a; /* fond de galerie sombre, rappel des murs du Louvre */
-  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
-  color: #4e3a22;
-  line-height: 1.55;
-  padding: 2rem 1rem;
-}
-
-/* Navigation */
-.navbar {
-  background: #1a1a1a;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.logo h1 {
-  color: #e8c9a0;
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-.logo p {
-  color: #9b8a7a;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: #f0ebe3;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-  font-size: 0.95rem;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #e8c9a0;
-}
-
-
-        /* Conteneur principal comme une toile tendue */
-        .louvre-frame {
-            max-width: 1280px;
-            margin: 0 auto;
-            background-color: #f9f6ef; /* parchemin ancien, lumière tamisée */
-            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.5), 0 0 0 1px #d4c9b5, 0 0 0 12px #3a3229, 0 0 0 14px #1f1b16;
-            border-radius: 2px;
-            position: relative;
-            transition: all 0.2s;
-        }
-
-        /* en-tête à la manière d'un cartel d'oeuvre monumental */
-        .museum-header {
-            text-align: center;
-            padding: 2.5rem 2rem 1.8rem;
-            border-bottom: 1px solid #d8cdb0;
-            background: linear-gradient(to bottom, #fff9ef, #f9f0e0);
-        }
-
-
-        h1 {
-            font-size: 3.2rem;
-            font-weight: 500;
-            letter-spacing: -0.5px;
-            color: #2c241a;
-            font-family: 'Cormorant Garamond', serif;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #d4c29b;
-            display: inline-block;
-            padding-bottom: 0.3rem;
-        }
-
-        /* Oeuvre principale — le texte devient "l'œuvre" comme un panneau historique */
-        .oeuvre-container {
-            padding: 2.8rem 3rem;
-            background: #fefaf3;
-            margin: 1.5rem 2rem;
-            box-shadow: inset 0 0 0 1px rgba(200, 180, 140, 0.3), 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .legend {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: monospace;
-            color: #b68b40;
-            margin-bottom: 1.8rem;
-            border-left: 3px solid #c6a56e;
-            padding-left: 1rem;
-        }
-
-        .historical-text {
-            font-size: 1.15rem;
-            font-weight: 400;
-            text-align: justify;
-            columns: 2;
-            column-gap: 2.5rem;
-            column-rule: 1px solid #e4d9c5;
-        }
-
-        .historical-text p {
-            margin-bottom: 1.2rem;
-            text-indent: 1.5em;
-            break-inside: avoid-column;
-        }
-
-        .historical-text p:first-of-type {
-            margin-top: 0;
-        }
-
-        /* petites initiales ornées */
-        .dropcap::first-letter {
-            font-size: 3.5rem;
-            font-weight: 600;
-            float: left;
-            line-height: 0.85;
-            margin-right: 0.4rem;
-            color: #7a582e;
-            font-family: 'Times New Roman', serif;
-        }
-
-    
-
-     
-        /* galerie d’ambiance : trois médaillons d'époque (évocation) */
-        .ambiance-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            padding: 1.5rem 2rem 3rem;
-            background: #f3ede2;
-            border-top: 1px solid #e3d5bc;
-        }
-
-        .medallion {
-            flex: 1;
-            min-width: 180px;
-            text-align: center;
-            background: #fef9ef;
-            padding: 1.2rem 0.8rem;
-            border-radius: 32px 12px 32px 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-
-        .medallion:hover {
-            transform: translateY(-6px);
-        }
-
-        .medallion .symbol {
-            font-size: 2.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .medallion h4 {
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 500;
-            color: #8b6b3e;
-        }
-
-        .medallion p {
-            font-size: 0.75rem;
-            margin-top: 0.4rem;
-            color: #4f3f2c;
-        }
-
-        /* citation comme dans une vitrine */
-        .vitrine-quote {
-            background: #e9e0cf;
-            margin: 0 2rem 2rem 2rem;
-            padding: 1.3rem 2rem;
-            font-style: italic;
-            font-size: 1rem;
-            border-left: 6px solid #b48c48;
-            color: #2c2418;
-            font-weight: 400;
-            box-shadow: inset 0 0 0 1px #fff9ef, 0 2px 6px rgba(0,0,0,0.05);
-        }
-
-   /* Footer */
-footer {
-  background: #1a1a1a;
-  color: #b0a088;
-  padding: 3rem 2rem 1.5rem;
-}
-
-.footer-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.footer-col h4 {
-  color: #e8c9a0;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.footer-col p,
-.footer-col a {
-  color: #9b8a7a;
-  text-decoration: none;
-  font-size: 0.85rem;
-  line-height: 1.8;
-}
-
-.footer-col a:hover {
-  color: #e8c9a0;
-}
-
-.copyright {
-  text-align: center;
-  padding-top: 2rem;
-  margin-top: 2rem;
-  border-top: 1px solid #2c2c2c;
-  font-size: 0.75rem;
-}
-
-
-
-        /* responsive: colonne unique sur mobile */
-        @media (max-width: 780px) {
-            .historical-text {
-                columns: 1;
-                column-rule: none;
-            }
-            .oeuvre-container {
-                padding: 1.8rem;
-                margin: 1rem;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-            .museum-header {
-                padding: 1.5rem;
-            }
-            .ambiance-gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-            .vitrine-quote {
-                margin: 0 1rem 1.5rem;
-            }
-        }
-
-        /* décors supplémentaires style moulures */
-        .louvre-frame::before {
-            content: "";
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            pointer-events: none;
-            border: 1px solid rgba(210, 180, 120, 0.3);
-            border-radius: 1px;
-        }
-    </style>
-  
+    <link rel="stylesheet" href="/css/style_historique.css">
+</head>
 <body>
      <header>
       <!-- Navigation -->
@@ -307,6 +15,20 @@ footer {
             <h1>Mussée national de lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
+             <!-- Bouton hamburger pour mobile -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/collection.html" class="active">Collections</a></li>
+      <li><a href="/a-propos.html">À propos</a></li>
+      <li><a href="/historique.html">Historique</a></li>
+    </ul>
+  </div>
+</nav>
           <ul class="nav-links">
             <li><a href="/index.html">Accueil</a></li>
             <li><a href="/collection.html" class="active">Collections</a></li>
@@ -317,36 +39,28 @@ footer {
       </nav>
     </header>
     <main>
-<div class="musée de lubumbashi">
-    <div class=" musée de lubumbashi">
-        <h1>Chronique du Musée de Lubumbashi</h1>
-    </div>
+         <div class="musée de lubumbashi">
+             <div class=" musée de lubumbashi">
+                 <h1>Chronique du Musée de Lubumbashi</h1>
+             </div>
 
-    <div class="oeuvre-container">
-        <div class="legend">▸ Une odyssée congolaise entre guerre, résilience et renaissance</div>
-        <div class="historical-text">
-            <p class="dropcap"><span style="font-size: 1.5rem; font-weight: bold;">E</span>n 1937, l’anthropologue Francis Cabu ouvrait à son domicile de Lubumbashi une exposition Archéologique. Cet événement inaugura la naissance du présent musée de Lubumbashi. Par la suite, grâce aux nombreuses missions entreprises, les collections se développèrent à d’autres diversités notamment L’Ethnographie, Minéralogie, géologie, et Entomologie. Cabu eut finalement, le 10 janvier 1946, le bonheur d’exposer ses collections de façon définitive dans ce qui fut baptisé officiellement Musée Léopold II et par le public Congolais : Musée Cabu.</p>
+            <div class="oeuvre-container">
+            <div class="legend">▸ Une odyssée congolaise entre guerre, résilience et renaissance</div>
+             <div class="historical-text">
+             <p class="dropcap"><span style="font-size: 1.5rem; font-weight: bold;">E</span>n 1937, l’anthropologue Francis Cabu ouvrait à son domicile de Lubumbashi une exposition Archéologique. Cet événement inaugura la naissance du présent musée de Lubumbashi. Par la suite, grâce aux nombreuses missions entreprises, les collections se développèrent à d’autres diversités notamment L’Ethnographie, Minéralogie, géologie, et Entomologie. Cabu eut finalement, le 10 janvier 1946, le bonheur d’exposer ses collections de façon définitive dans ce qui fut baptisé officiellement Musée Léopold II et par le public Congolais : Musée Cabu.</p>
 
-            <p>En 1960, le terrain du Musée changea de destination. Il devait accueillir la Foire Internationale d'Elisabethville (Lubumbashi). Les Autorités décidèrent de construire un nouveau musée à l'emplacement actuel. Les collections gagnèrent les nouveaux bâtiments en 1961, mais la guerre de la sécession katangaise éclata aussitôt. Les troupes de l'organisation des Nations unies au Congo (ONUC) transformèrent le Musée en caserne. D'importants dégâts furent ainsi causés aux bâtiments. Les troupes onusiennes détruisirent quantité d'objets préhistoriques et zoologiques, elles pillèrent en outre partiellement les collections d'ethnographie et de minéralogie. En dépit de ce gâchis, le personnel du Musée, belge et congolais, parvint à sauver une partie des collections qu'il évacua à la Kipopo dans la région minière de Kipushi, à quelque 30 km de Lubumbashi.</p>
+             <p>En 1960, le terrain du Musée changea de destination. Il devait accueillir la Foire Internationale d'Elisabethville (Lubumbashi). Les Autorités décidèrent de construire un nouveau musée à l'emplacement actuel. Les collections gagnèrent les nouveaux bâtiments en 1961, mais la guerre de la sécession katangaise éclata aussitôt. Les troupes de l'organisation des Nations unies au Congo (ONUC) transformèrent le Musée en caserne. D'importants dégâts furent ainsi causés aux bâtiments. Les troupes onusiennes détruisirent quantité d'objets préhistoriques et zoologiques, elles pillèrent en outre partiellement les collections d'ethnographie et de minéralogie. En dépit de ce gâchis, le personnel du Musée, belge et congolais, parvint à sauver une partie des collections qu'il évacua à la Kipopo dans la région minière de Kipushi, à quelque 30 km de Lubumbashi.</p>
 
-            <p>La guerre prit fin en 1963. Les collections quittèrent la Kipopo et réintégrèrent le Musée. Celui-ci cessa de s'appeler Musée Léopold II on le baptisa Musée provincial du Katanga, Roger De Poerk, de nationalité belge, en fut nommé Conservateur. Les efforts de De Poerk, appuyés en particulier par la Société des amis du Musée aboutirent en 1967 à l'ouverture de deux salles d'exposition entièrement consacrées à l'Ethnographie. En 1970. Sous l'impulsion du Président Mobutu Sese Seko, fut créé l’institut des Musées Nationaux du Zaïre, rassemblant tous les anciens musées officiels existants ou ayant existé sur le territoire congolais. Le Musée Provincial du Katanga fut baptisé Musée National de Lubumbashi. Edouard Vincke et Guy De Plaen, tous deux de nationalité belge, dirigèrent d'abord conjointement le Musée ; par la suite, G. De Plaen en assuma seul la direction, à ses débuts, entre 1972 et 1977 surtout, le MNL fut doté d'importants fonds provenant de la Présidence de la République.</p>
+              <p>La guerre prit fin en 1963. Les collections quittèrent la Kipopo et réintégrèrent le Musée. Celui-ci cessa de s'appeler Musée Léopold II on le baptisa Musée provincial du Katanga, Roger De Poerk, de nationalité belge, en fut nommé Conservateur. Les efforts de De Poerk, appuyés en particulier par la Société des amis du Musée aboutirent en 1967 à l'ouverture de deux salles d'exposition entièrement consacrées à l'Ethnographie. En 1970. Sous l'impulsion du Président Mobutu Sese Seko, fut créé l’institut des Musées Nationaux du Zaïre, rassemblant tous les anciens musées officiels existants ou ayant existé sur le territoire congolais. Le Musée Provincial du Katanga fut baptisé Musée National de Lubumbashi. Edouard Vincke et Guy De Plaen, tous deux de nationalité belge, dirigèrent d'abord conjointement le Musée ; par la suite, G. De Plaen en assuma seul la direction, à ses débuts, entre 1972 et 1977 surtout, le MNL fut doté d'importants fonds provenant de la Présidence de la République.</p>
 
-            <p>Cela permit d'exécuter des grands travaux de restauration des bâtiments (la réparation des toitures en particulier), d'effectuer plusieurs campagnes de fouilles archéologiques et de procéder à de nombreuses récoltes Ethnographiques. Les réserves furent réaménagées plus ou moins correctement durant la même période, un autre acquis des plus importants de cette époque fut la mise à la disposition du public de cinq salles d’expositions permanente consacrées les unes à l'Ethnographie, les autres à l'Archéologie et à l'Entomologie. Suite à l’Africanisation des cadres de l’IMNZ depuis 1986 à nos jours le MNL est dirigé par des Congolais. Aujourd’hui, le Musée National de Lubumbashi est un phare de fierté culturelle dans la région, préservant et présentant l’histoire et le patrimoine riches et diversifiés de la RDC. Il sert de lien vital entre le passé et le présent, offrant aux visiteurs un voyage immersif à travers les multiples facettes de la culture congolaise.</p>
-        </div>
-        
-    </div>
-
-   
-    </div>
-
-    <div class="vitrine-quote">
-        « En dépit des guerres et des pillages, le Musée National de Lubumbashi demeure une mémoire vivante. Aujourd’hui conservé par des équipes congolaises, il incarne la résilience et le rayonnement des cultures de la RDC. »<br>
-        — Extrait du livret d’exposition "Renaissance d’un Musée", 2022.
+             <p>Cela permit d'exécuter des grands travaux de restauration des bâtiments (la réparation des toitures en particulier), d'effectuer plusieurs campagnes de fouilles archéologiques et de procéder à de nombreuses récoltes Ethnographiques. Les réserves furent réaménagées plus ou moins correctement durant la même période, un autre acquis des plus importants de cette époque fut la mise à la disposition du public de cinq salles d’expositions permanente consacrées les unes à l'Ethnographie, les autres à l'Archéologie et à l'Entomologie. Suite à l’Africanisation des cadres de l’IMNZ depuis 1986 à nos jours le MNL est dirigé par des Congolais. Aujourd’hui, le Musée National de Lubumbashi est un phare de fierté culturelle dans la région, préservant et présentant l’histoire et le patrimoine riches et diversifiés de la RDC. Il sert de lien vital entre le passé et le présent, offrant aux visiteurs un voyage immersif à travers les multiples facettes de la culture congolaise.</p>
+          </div>
+      </div>
     </div>
         <!-- Footer -->
     <footer>
       <div class="footer-container">
-        <div class="footer-col">
+        <div class="footer -col">
           <h4>Institut des musées nationaux du Congo</h4>
           <p>Préservation et valorisation du patrimoine Congolais.</p>
         </div>
@@ -372,5 +86,25 @@ footer {
     </footer>
 </div>
 </main>
+<script>
+  // Menu burger
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Fermer le menu après un clic sur un lien
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+}
+</script>
 </body>
 </html>

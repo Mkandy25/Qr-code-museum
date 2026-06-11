@@ -11,7 +11,7 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-  background-color: #faf8f4;
+  background-color: #f7ede2;
   color: #2c241e;
   line-height: 1.5;
 }
@@ -336,6 +336,61 @@ footer {
   margin-top: 2rem;
   border-top: 1px solid #2c2c2c;
   font-size: 0.75rem;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #e8c9a0;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animation du hamburger en "X" lorsque ouvert */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Masquer les liens par défaut sur mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .nav-links li {
+    margin: 0;
+  }
 }
 
 @media (max-width: 768px) {

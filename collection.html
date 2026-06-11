@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="" />
     <link rel="stylesheet" href="/css/style_collections.css" />
-    <title>Collections</title>
+    <title>Collections | Musée national de Lubumbashi</title>
   </head>
   <body>
     <header>
-      <!-- Navigation -->
       <nav class="navbar">
         <div class="nav-container">
           <div class="logo">
-            <h1>Mussée national de lubumbashi</h1>
+            <h1>Musée national de Lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
-          <ul class="nav-links">
+          <!-- Bouton hamburger pour mobile -->
+          <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="nav-links" id="navLinks">
             <li><a href="/index.html">Accueil</a></li>
             <li><a href="/collection.html" class="active">Collections</a></li>
             <li><a href="/a-propos.html">À propos</a></li>
@@ -25,6 +29,7 @@
         </div>
       </nav>
     </header>
+
     <main>
       <!-- En-tête -->
       <section class="page-header">
@@ -35,23 +40,29 @@
         </p>
       </section>
 
-      <!-- Filtres -->
+      <!-- Filtres et recherche -->
       <section class="filters-section">
         <div class="filters-container" id="filterButtons">
           <button class="filter-btn active" data-filter="toutes">Toutes</button>
           <button class="filter-btn" data-filter="masque">Masques</button>
-          <button class="filter-btn" data-filter="ambiance">Ambiance</button>
           <button class="filter-btn" data-filter="statue">
             Statues & Figures
           </button>
           <button class="filter-btn" data-filter="objet">Objets rituels</button>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Rechercher par mot-clé (titre, description, ethnie...)"
+          />
         </div>
       </section>
 
       <!-- Grille des collections -->
       <section class="collections-section">
         <div class="collection-grid" id="collectionGrid">
-          <!-- Carte 1 - Masque Bwali Bukishi (ambiance) -->
+          <!-- Carte 1 - Masque Bwali Bukishi -->
           <div class="art-card" data-type="masque">
             <div class="card-image">
               <img
@@ -68,20 +79,17 @@
                 fêtes de village, des récoltes et des marchés.
               </p>
               <div class="card-details">
-                <span> Culture Bwali</span>
-                <span> Bois & pigments</span>
+                <span>Culture Bwali</span><span>Bois & pigments</span>
               </div>
-              <a href="/oeuvres/Masque_Bwali_Bukishi.html" class="btn-view"
+              <a href="/oeuvres/Masque_BWALI_BUKISHI.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- oeuvre_2 -->
+          <!-- Carte 2 - Masque Royal Kuba -->
           <div class="art-card" data-type="masque">
-            <div class="card-image">
-              <img src="/images/oeuvre_2.jpeg" alt="Masque Royal Kuba" />
-            </div>
+            <div class="card-image"><img src="" alt="" /></div>
             <div class="card-content">
               <div class="card-category">Masque mystique</div>
               <h3 class="card-title">Masque Royal Kuba</h3>
@@ -91,19 +99,16 @@
                 l'autorité divine et la connexion avec les ancêtres.
               </p>
               <div class="card-details">
-                <span> Royaume Kuba</span>
-                <span> 52 cm</span>
-                <span> Perles & cuivre</span>
+                <span>Royaume Kuba</span><span>52 cm</span
+                ><span>Perles & cuivre</span>
               </div>
               <a href="#" class="btn-view">Voir l'œuvre →</a>
             </div>
           </div>
 
-          <!-- Carte 3 - Masque Danseur (ambiance) -->
+          <!-- Carte 3 - Masque Danseur Yombé -->
           <div class="art-card" data-type="masque">
-            <div class="card-image">
-              <img src="/images/oeuvre_3.jpeg" alt="Masque Danseur" />
-            </div>
+            <div class="card-image"><img src="" alt="" /></div>
             <div class="card-content">
               <div class="card-category">Masque</div>
               <h3 class="card-title">Masque Danseur Yombé</h3>
@@ -113,46 +118,40 @@
                 festivités. Légèreté et agilité.
               </p>
               <div class="card-details">
-                <span> Culture Yombé</span>
-                <span> 38 cm</span>
-                <span> Bois clair</span>
+                <span>Culture Yombé</span><span>38 cm</span
+                ><span>Bois clair</span>
               </div>
               <a href="#" class="btn-view">Voir l'œuvre →</a>
             </div>
           </div>
 
-          <!-- Carte 4 - Fumani -->
+          <!-- Carte 4 - FUMANI -->
           <div class="art-card" data-type="statue">
             <div class="card-image">
               <img src="/images/Fumani.jpeg" alt="Fumani" />
             </div>
             <div class="card-content">
-              <div class="card-category">Sculpure</div>
+              <div class="card-category">Sculpture</div>
               <h3 class="card-title">FUMANI</h3>
               <div class="card-subtitle">Protection</div>
               <p class="card-description">
                 Le Fumani est une sculpture funéraire en pierre (stéatite) du
-                peuple Kongo, utilisée pour honorer les ancêtres et marquer les
-                tombes. Il représente souvent un chef, reconnaissable à sa
-                coiffure, avec une main sur la joue exprimant la tristesse.
-                Cette statue symbolise le souci du défunt pour son clan et la
-                transmission de sa mémoire.
+                peuple Kongo... représente souvent un chef, avec une main sur la
+                joue exprimant la tristesse.
               </p>
               <div class="card-details">
-                <span> Bas-Congo</span>
-                <span> Pierre (stéatite)</span>
+                <span>Bas-Congo</span><span>Pierre (stéatite)</span>
               </div>
-              <a href="/oeuvres/FUMANI.html" class="btn-view">Voir l'œuvre →</a>
+              <a href="/oeuvres/Sculpture_FUMANI.html" class="btn-view"
+                >Voir l'œuvre →</a
+              >
             </div>
           </div>
 
-          <!-- Carte 5 - Tabouret du chef -->
+          <!-- Carte 5 - Tabouret des chefs -->
           <div class="art-card" data-type="objet">
             <div class="card-image">
-              <img
-                src="/images/Tabouret de chef.jpeg"
-                alt="Statue ancestrale"
-              />
+              <img src="/images/Tabouret de chef.jpeg" alt="Tabouret chef" />
             </div>
             <div class="card-content">
               <div class="card-category">Statue & Figure</div>
@@ -163,16 +162,15 @@
                 sacrés et consultée avant les grandes décisions.
               </p>
               <div class="card-details">
-                <span> Dogon</span>
-                <span> Bois sacré</span>
+                <span>Dogon</span><span>Bois sacré</span>
               </div>
-              <a href="/oeuvres/TABOURET DE CHEF.html" class="btn-view"
+              <a href="/oeuvres/TABOURET_DU_CHEF.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- Carte 6 - Coupe à offrandes (objet) -->
+          <!-- Carte 6 - PWOOM ITOK -->
           <div class="art-card" data-type="masque">
             <div class="card-image">
               <img src="/images/Pwoom.jpeg" alt="Masque Pwoom" />
@@ -182,65 +180,60 @@
               <h3 class="card-title">PWOOM ITOK</h3>
               <div class="card-subtitle">Pouvoir juridique</div>
               <p class="card-description">
-                Ce masque, generalement appele <strong>pwoom itok</strong> est
-                surnomme <strong>ishyeen maal</strong> chez les Ngeende.<br />
-                C'est un masque facial en bois rehaussé d'une coiffure à trois
-                lobes en fibres de rapkia.
+                Ce masque, généralement appelé pwoom itok, est surnommé ishyeen
+                maal chez les Ngeende. Masque facial en bois rehaussé d'une
+                coiffure à trois lobes en fibres de raphia.
               </p>
               <div class="card-details">
-                <span> Ngeende</span>
-                <span> Bois rehaussé</span>
+                <span>Ngeende</span><span>Bois rehaussé</span>
               </div>
-              <a href="/oeuvres/Masque PWOOM ITOK.html" class="btn-view"
+              <a href="/oeuvres/Masque_PWOOM_ITOK.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- Carte 7 - Masque Rond -->
-          <div class="art-card" data-type="ambiance">
+          <!-- Carte 7 - Masque Rond (data-type corrigé : masque) -->
+          <div class="art-card" data-type="masque">
             <div class="card-image">
               <img src="/images/Masque_Rond.jpeg" alt="Masque crête" />
             </div>
             <div class="card-content">
               <div class="card-category">Masque d'ambiance</div>
-              <h3 class="card-title">Masque ROND_KIFWEBENGO</h3>
+              <h3 class="card-title">ROND KIFWEBENGO</h3>
               <div class="card-subtitle">Fierté & Élégance</div>
               <p class="card-description">
                 Masque orné d'une haute crête. Symbole de fierté masculine et de
                 bravoure. Porté lors des compétitions de danse.
               </p>
               <div class="card-details">
-                <span> Bwa</span>
-                <span> 85 cm</span>
-                <span> Pigments rouges</span>
+                <span>Bwa</span><span>85 cm</span><span>Pigments rouges</span>
               </div>
               <a
-                href="/oeuvres/masque_ROND_KIFWEBENGO_ MUDIMBULA .html"
+                href="/oeuvres/Masque_ROND_KIFWEBENGO_ MUDIMBULA .html"
                 class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- Carte 8 - Mwana_pwo -->
-          <div class="art-card" data-type="Masque">
+          <!-- Carte 8 - Mwana pwo (data-type corrigé : masque) -->
+          <div class="art-card" data-type="masque">
             <div class="card-image">
-              <img src="/images/Masque Mwana Pwo.jpeg" alt="Masque Cihongo" />
+              <img src="/images/Masque Mwana Pwo.jpeg" alt="Masque Mwana Pwo" />
             </div>
             <div class="card-content">
-              <div class="card-category">masque</div>
-              <h3 class="card-title">Mwana_pwo</h3>
+              <div class="card-category">Masque</div>
+              <h3 class="card-title">Mwana pwo</h3>
               <div class="card-subtitle">Voyage vers l'au-delà</div>
               <p class="card-description">
                 Accompagnait les défunts lors des rites funéraires. Protégeait
                 l'âme durant son voyage vers le monde des ancêtres.
               </p>
               <div class="card-details">
-                <span> Fang</span>
-                <span> 42 cm</span>
+                <span>Fang</span><span>42 cm</span>
               </div>
-              <a href="/oeuvres/Mwana_Pwo.html" class="btn-view"
+              <a href="/oeuvres/Masque_MWANA_PWO.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
@@ -249,67 +242,65 @@
           <!-- Carte 9 - Poterie Kongo -->
           <div class="art-card" data-type="objet">
             <div class="card-image">
-              <img src="/images/Poterie_kongo.jpeg" alt="Poterie_kongo" />
+              <img src="/images/Poterie_kongo.jpeg" alt="Poterie Kongo" />
             </div>
             <div class="card-content">
               <div class="card-category">Statue & Figure</div>
-              <h3 class="card-title">Statue Féminine Pende</h3>
+              <h3 class="card-title">POTERIE KONGO</h3>
               <div class="card-subtitle">Fécondité & Maternité</div>
               <p class="card-description">
                 Symbole de fertilité et de protection maternelle. Offerte aux
                 jeunes mariées pour favoriser la descendance.
               </p>
               <div class="card-details">
-                <span> Pende</span>
-                <span> Perles de verre</span>
+                <span>Pende</span><span>Perles de verre</span>
               </div>
-              <a href="/oeuvres/Poterie Kongo.html" class="btn-view"
+              <a href="/oeuvres/POTERIE_KONGO.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
 
-          <!-- Carte 10 - Nabo  -->
+          <!-- Carte 10 - Statue Nabo -->
           <div class="art-card" data-type="statue">
             <div class="card-image">
-              <img src="/images/Statue_Nabo.jpeg" alt="Statue_Nabo" />
+              <img src="/images/Statue_Nabo.jpeg" alt="Statue Nabo" />
             </div>
             <div class="card-content">
               <div class="card-category">Objet rituel</div>
-              <h3 class="card-title">Tambour Parleur</h3>
+              <h3 class="card-title">e Nabo</h3>
               <div class="card-subtitle">Communication & Rythme</div>
               <p class="card-description">
                 Instrument de communication utilisé pour transmettre des
                 messages à travers les villages et rythmer les cérémonies.
               </p>
               <div class="card-details">
-                <span> Ashanti</span>
-                <span> Peau & bois</span>
+                <span>Ashanti</span><span>Peau & bois</span>
               </div>
-              <a href="/oeuvres/STATUE NABO.html" class="btn-view"
+              <a href="/oeuvres/STATUE_NABO.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
           </div>
-          <!-- Carte 11 - Maque Mwana_pwo -->
+
+          <!-- Carte 11 - Masque Cihongo -->
           <div class="art-card" data-type="masque">
             <div class="card-image">
-              <img src="/images/Masque Cihongo.jpeg" alt="Masque Danseur" />
+              <img src="/images/Masque Cihongo.jpeg" alt="Masque Cihongo" />
             </div>
             <div class="card-content">
               <div class="card-category">Masque</div>
-              <h3 class="card-title">Masque Danseur Yombé</h3>
+              <h3 class="card-title">Cihongo</h3>
               <div class="card-subtitle">Allégresse collective</div>
               <p class="card-description">
                 Porté par les meilleurs danseurs lors des compétitions et des
                 festivités. Légèreté et agilité.
               </p>
               <div class="card-details">
-                <span> Culture Yombé</span>
-                <span> 38 cm</span>
-                <span> Bois clair</span>
+                <span>Culture Yombé</span><span>38 cm</span
+                ><span>Bois clair</span>
               </div>
-              <a href="/oeuvres/Masque_Cihongo.html" class="btn-view"
+              <a href="/oeuvres/Masque_CIHONGO.html" class="btn-view"
                 >Voir l'œuvre →</a
               >
             </div>
@@ -317,6 +308,7 @@
         </div>
       </section>
     </main>
+
     <!-- Footer -->
     <footer>
       <div class="footer-container">
@@ -326,9 +318,9 @@
         </div>
         <div class="footer-col">
           <h4>Liens rapides</h4>
-          <p><a href="collections.html">Accueil</a></p>
+          <p><a href="/index.html">Accueil</a></p>
           <p><a href="/collection.html">Collections</a></p>
-          <p><a href="/a-propos.html">A propos</a></p>
+          <p><a href="/a-propos.html">À propos</a></p>
           <p><a href="/historique.html">Historique</a></p>
         </div>
         <div class="footer-col">
@@ -337,55 +329,96 @@
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <p>Av. du Mussée, Lubumbashi</p>
+          <p>Av. du Musée, Lubumbashi</p>
           <p>+243 857 779 998</p>
           <p>contact@museedelubumbashi.org</p>
         </div>
       </div>
-      <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
+      <div class="copyright">© Musée de Lubumbashi – Tous droits réservés</div>
     </footer>
-    <!-- Script pour les filtres -->
+
     <script>
-      // Filtrage des cartes par type
-      const filterButtons = document.querySelectorAll(".filter-btn");
-      const cards = document.querySelectorAll(".art-card");
+      document.addEventListener("DOMContentLoaded", function () {
+        // Menu burger
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+          });
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+              hamburger.classList.remove("active");
+              navLinks.classList.remove("active");
+            });
+          });
+        }
 
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          // Retirer la classe active de tous les boutons
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          // Ajouter la classe active au bouton cliqué
-          button.classList.add("active");
+        // Filtrage et recherche
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".art-card");
+        const searchInput = document.getElementById("searchInput");
 
-          const filterValue = button.getAttribute("data-filter");
+        let currentFilter = "toutes";
+        let currentSearch = "";
 
+        function matchesSearch(card, searchTerm) {
+          if (!searchTerm) return true;
+          const textContent = card.textContent.toLowerCase();
+          const keywords = searchTerm.toLowerCase().split(" ");
+          return keywords.some((keyword) => textContent.includes(keyword));
+        }
+
+        function filterCards() {
           cards.forEach((card) => {
-            if (
-              filterValue === "all" ||
-              card.getAttribute("data-type") === filterValue
-            ) {
+            const cardType = card.getAttribute("data-type");
+            const typeMatch =
+              currentFilter === "toutes" || cardType === currentFilter;
+            const searchMatch = matchesSearch(card, currentSearch);
+            if (typeMatch && searchMatch) {
               card.style.display = "block";
-              // Animation d'apparition
               card.style.animation = "fadeIn 0.4s ease";
             } else {
               card.style.display = "none";
             }
           });
-        });
-      });
+        }
 
-      // Animation fadeIn
-      const style = document.createElement("style");
-      style.textContent = `
-        @keyframes fadeIn {
+        if (filterButtons.length) {
+          filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              filterButtons.forEach((btn) => btn.classList.remove("active"));
+              button.classList.add("active");
+              currentFilter = button.getAttribute("data-filter");
+              filterCards();
+            });
+          });
+        } else {
+          console.warn("Aucun bouton .filter-btn trouvé");
+        }
+
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            currentSearch = e.target.value;
+            filterCards();
+          });
+        }
+
+        // Animation fadeIn
+        if (!document.querySelector("style[data-fade]")) {
+          const style = document.createElement("style");
+          style.setAttribute("data-fade", "");
+          style.textContent = `
+          @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+          }
+          .art-card { animation: fadeIn 0.4s ease; }
+        `;
+          document.head.appendChild(style);
         }
-        .art-card {
-            animation: fadeIn 0.4s ease;
-        }
-    `;
-      document.head.appendChild(style);
+      });
     </script>
   </body>
 </html>
