@@ -413,3 +413,51 @@ footer {
     padding: 3rem 1rem;
   }
 }
+
+.carousel {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.carousel-track .art-card {
+  flex: 0 0 calc((100% - 4rem) / 3);
+}
+
+.carousel-btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #b87c4f;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  background: #9a623d;
+}
+
+@media (max-width: 768px) {
+  .carousel-track .art-card {
+    flex: 0 0 100%;
+  }
+}
