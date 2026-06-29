@@ -8,27 +8,52 @@
   </head>
   <body>
     <header>
+      <!-- Navigation -->
       <nav class="navbar">
         <div class="nav-container">
           <div class="logo">
-            <h1>Musée national de Lubumbashi</h1>
+            <h1>Musée National de Lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
-          <!-- Bouton hamburger pour mobile -->
+
+          <!-- Bouton hamburger -->
           <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
           </div>
-          <ul class="nav-links" id="navLinks">
+
+          <!-- Menu desktop -->
+          <ul class="nav-links">
             <li><a href="/index.html">Accueil</a></li>
-            <li><a href="/collection.html" class="active">Collections</a></li>
+            <li><a href="/collection.html">Collections</a></li>
             <li><a href="/a-propos.html">À propos</a></li>
             <li><a href="/historique.html">Historique</a></li>
           </ul>
         </div>
       </nav>
     </header>
+    <section>
+      <!-- ===== NOUVEAU MENU MOBILE ===== -->
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <div class="nav-menu" id="navMenu">
+        <!-- Bouton fermeture (croix) -->
+        <button class="nav-close" id="navClose">✕</button>
+
+        <div class="logo-mobile">
+          <h2>Musée National</h2>
+          <p>Institut des musées nationaux du Congo</p>
+        </div>
+
+        <ul class="nav-links-mobile">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/collection.html">Collections</a></li>
+          <li><a href="/a-propos.html">À propos</a></li>
+          <li><a href="/historique.html">Historique</a></li>
+        </ul>
+      </div>
+    </section>
 
     <main>
       <!-- En-tête -->
@@ -305,6 +330,24 @@
               >
             </div>
           </div>
+          <!-- Carte 2 - Masque Royal Kuba -->
+          <div class="art-card" data-type="masque">
+            <div class="card-image"><img src="" alt="" /></div>
+            <div class="card-content">
+              <div class="card-category">Masque mystique</div>
+              <h3 class="card-title">Masque Royal Kuba</h3>
+              <div class="card-subtitle">Pouvoir & Spiritualité</div>
+              <p class="card-description">
+                Destiné aux rois et aux cérémonies d'intronisation. Incarne
+                l'autorité divine et la connexion avec les ancêtres.
+              </p>
+              <div class="card-details">
+                <span>Royaume Kuba</span><span>52 cm</span
+                ><span>Perles & cuivre</span>
+              </div>
+              <a href="#" class="btn-view">Voir l'œuvre →</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -337,7 +380,7 @@
       <div class="copyright">© Musée de Lubumbashi – Tous droits réservés</div>
     </footer>
 
-    <script>
+    <script src="script.js">
       document.addEventListener("DOMContentLoaded", function () {
         // Menu burger
         const hamburger = document.getElementById("hamburger");

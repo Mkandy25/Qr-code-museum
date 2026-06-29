@@ -1,83 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Musée National de Lubumbashi — Œuvre historique | Exposition Louvre</title>
-    <link rel="stylesheet" href="/css/style_historique.css">
-</head>
-<body>
-     <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Musée National de Lubumbashi — Œuvre historique | Exposition</title>
+    <link rel="stylesheet" href="/css/style_historique.css" />
+  </head>
+  <body>
+    <header>
       <!-- Navigation -->
       <nav class="navbar">
         <div class="nav-container">
           <div class="logo">
-            <h1>Mussée national de lubumbashi</h1>
+            <h1>Musée National de Lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
-             <!-- Bouton hamburger pour mobile -->
-    <div class="hamburger" id="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/index.html">Accueil</a></li>
-      <li><a href="/collection.html" class="active">Collections</a></li>
-      <li><a href="/a-propos.html">À propos</a></li>
-      <li><a href="/historique.html">Historique</a></li>
-    </ul>
-  </div>
-</nav>
-    </header>
-    <main>
-         <div class="musée de lubumbashi">
-             <div class=" musée de lubumbashi">
-                 <h1>Chronique du Musée de Lubumbashi</h1>
-             </div>
 
-            <div class="oeuvre-container">
-            <div class="legend">▸ Une odyssée congolaise entre guerre, résilience et renaissance</div>
-             <div class="historical-text">
-             <p class="dropcap"><span style="font-size: 1.5rem; font-weight: bold;">E</span>n 1937, l’anthropologue Francis Cabu ouvrait à son domicile de Lubumbashi une exposition Archéologique. Cet événement inaugura la naissance du présent musée de Lubumbashi. Par la suite, grâce aux nombreuses missions entreprises, les collections se développèrent à d’autres diversités notamment L’Ethnographie, Minéralogie, géologie, et Entomologie. Cabu eut finalement, le 10 janvier 1946, le bonheur d’exposer ses collections de façon définitive dans ce qui fut baptisé officiellement Musée Léopold II et par le public Congolais : Musée Cabu.</p>
-
-             <p>En 1960, le terrain du Musée changea de destination. Il devait accueillir la Foire Internationale d'Elisabethville (Lubumbashi). Les Autorités décidèrent de construire un nouveau musée à l'emplacement actuel. Les collections gagnèrent les nouveaux bâtiments en 1961, mais la guerre de la sécession katangaise éclata aussitôt. Les troupes de l'organisation des Nations unies au Congo (ONUC) transformèrent le Musée en caserne. D'importants dégâts furent ainsi causés aux bâtiments. Les troupes onusiennes détruisirent quantité d'objets préhistoriques et zoologiques, elles pillèrent en outre partiellement les collections d'ethnographie et de minéralogie. En dépit de ce gâchis, le personnel du Musée, belge et congolais, parvint à sauver une partie des collections qu'il évacua à la Kipopo dans la région minière de Kipushi, à quelque 30 km de Lubumbashi.</p>
-
-              <p>La guerre prit fin en 1963. Les collections quittèrent la Kipopo et réintégrèrent le Musée. Celui-ci cessa de s'appeler Musée Léopold II on le baptisa Musée provincial du Katanga, Roger De Poerk, de nationalité belge, en fut nommé Conservateur. Les efforts de De Poerk, appuyés en particulier par la Société des amis du Musée aboutirent en 1967 à l'ouverture de deux salles d'exposition entièrement consacrées à l'Ethnographie. En 1970. Sous l'impulsion du Président Mobutu Sese Seko, fut créé l’institut des Musées Nationaux du Zaïre, rassemblant tous les anciens musées officiels existants ou ayant existé sur le territoire congolais. Le Musée Provincial du Katanga fut baptisé Musée National de Lubumbashi. Edouard Vincke et Guy De Plaen, tous deux de nationalité belge, dirigèrent d'abord conjointement le Musée ; par la suite, G. De Plaen en assuma seul la direction, à ses débuts, entre 1972 et 1977 surtout, le MNL fut doté d'importants fonds provenant de la Présidence de la République.</p>
-
-             <p>Cela permit d'exécuter des grands travaux de restauration des bâtiments (la réparation des toitures en particulier), d'effectuer plusieurs campagnes de fouilles archéologiques et de procéder à de nombreuses récoltes Ethnographiques. Les réserves furent réaménagées plus ou moins correctement durant la même période, un autre acquis des plus importants de cette époque fut la mise à la disposition du public de cinq salles d’expositions permanente consacrées les unes à l'Ethnographie, les autres à l'Archéologie et à l'Entomologie. Suite à l’Africanisation des cadres de l’IMNZ depuis 1986 à nos jours le MNL est dirigé par des Congolais. Aujourd’hui, le Musée National de Lubumbashi est un phare de fierté culturelle dans la région, préservant et présentant l’histoire et le patrimoine riches et diversifiés de la RDC. Il sert de lien vital entre le passé et le présent, offrant aux visiteurs un voyage immersif à travers les multiples facettes de la culture congolaise.</p>
+          <!-- Bouton hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
           </div>
+
+          <!-- Menu desktop -->
+          <ul class="nav-links">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="/collection.html">Collections</a></li>
+            <li><a href="/a-propos.html">À propos</a></li>
+            <li><a href="/historique.html">Historique</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <!-- ===== NOUVEAU MENU MOBILE ===== -->
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <div class="nav-menu" id="navMenu">
+        <!-- Bouton fermeture (croix) -->
+        <button class="nav-close" id="navClose">✕</button>
+
+        <div class="logo-mobile">
+          <h2>Musée National</h2>
+          <p>Institut des musées nationaux du Congo</p>
+        </div>
+
+        <ul class="nav-links-mobile">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/collection.html">Collections</a></li>
+          <li><a href="/a-propos.html">À propos</a></li>
+          <li><a href="/historique.html">Historique</a></li>
+        </ul>
       </div>
-    </div>
-        <!-- Footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer -col">
-          <h4>Institut des musées nationaux du Congo</h4>
-          <p>Préservation et valorisation du patrimoine Congolais.</p>
+    </section>
+    <main>
+      <div class="musée de lubumbashi">
+        <div class="musée de lubumbashi">
+          <h1>Chronique du Musée de Lubumbashi</h1>
         </div>
-        <div class="footer-col">
-          <h4>Liens rapides</h4>
-          <p><a href="/index.html">Accueil</a></p>
-          <p><a href="/collection.html">Collections</a></p>
-          <p><a href="/a-propos.html">A propos</a></p>
-          <p><a href="/historique.html">Historique</a></p>
-        </div>
-        <div class="footer-col">
-          <h4>Suivez-nous</h4>
-          <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Av. du Mussée, Lubumbashi</p>
-          <p>+243 857 779 998</p>
-          <p>contact@museedelubumbashi.org</p>
+
+        <div class="oeuvre-container">
+          <div class="legend">
+            ▸ Une odyssée congolaise entre guerre, résilience et renaissance
+          </div>
+          <div class="historical-text">
+            <p class="dropcap">
+              <span style="font-size: 1.5rem; font-weight: bold">E</span>n 1937,
+              l’anthropologue Francis Cabu ouvrait à son domicile de Lubumbashi
+              une exposition Archéologique. Cet événement inaugura la naissance
+              du présent musée de Lubumbashi. Par la suite, grâce aux nombreuses
+              missions entreprises, les collections se développèrent à d’autres
+              diversités notamment L’Ethnographie, Minéralogie, géologie, et
+              Entomologie. Cabu eut finalement, le 10 janvier 1946, le bonheur
+              d’exposer ses collections de façon définitive dans ce qui fut
+              baptisé officiellement Musée Léopold II et par le public Congolais
+              : Musée Cabu.
+            </p>
+
+            <p>
+              En 1960, le terrain du Musée changea de destination. Il devait
+              accueillir la Foire Internationale d'Elisabethville (Lubumbashi).
+              Les Autorités décidèrent de construire un nouveau musée à
+              l'emplacement actuel. Les collections gagnèrent les nouveaux
+              bâtiments en 1961, mais la guerre de la sécession katangaise
+              éclata aussitôt. Les troupes de l'organisation des Nations unies
+              au Congo (ONUC) transformèrent le Musée en caserne. D'importants
+              dégâts furent ainsi causés aux bâtiments. Les troupes onusiennes
+              détruisirent quantité d'objets préhistoriques et zoologiques,
+              elles pillèrent en outre partiellement les collections
+              d'ethnographie et de minéralogie. En dépit de ce gâchis, le
+              personnel du Musée, belge et congolais, parvint à sauver une
+              partie des collections qu'il évacua à la Kipopo dans la région
+              minière de Kipushi, à quelque 30 km de Lubumbashi.
+            </p>
+
+            <p>
+              La guerre prit fin en 1963. Les collections quittèrent la Kipopo
+              et réintégrèrent le Musée. Celui-ci cessa de s'appeler Musée
+              Léopold II on le baptisa Musée provincial du Katanga, Roger De
+              Poerk, de nationalité belge, en fut nommé Conservateur. Les
+              efforts de De Poerk, appuyés en particulier par la Société des
+              amis du Musée aboutirent en 1967 à l'ouverture de deux salles
+              d'exposition entièrement consacrées à l'Ethnographie. En 1970.
+              Sous l'impulsion du Président Mobutu Sese Seko, fut créé
+              l’institut des Musées Nationaux du Zaïre, rassemblant tous les
+              anciens musées officiels existants ou ayant existé sur le
+              territoire congolais. Le Musée Provincial du Katanga fut baptisé
+              Musée National de Lubumbashi. Edouard Vincke et Guy De Plaen, tous
+              deux de nationalité belge, dirigèrent d'abord conjointement le
+              Musée ; par la suite, G. De Plaen en assuma seul la direction, à
+              ses débuts, entre 1972 et 1977 surtout, le MNL fut doté
+              d'importants fonds provenant de la Présidence de la République.
+            </p>
+
+            <p>
+              Cela permit d'exécuter des grands travaux de restauration des
+              bâtiments (la réparation des toitures en particulier), d'effectuer
+              plusieurs campagnes de fouilles archéologiques et de procéder à de
+              nombreuses récoltes Ethnographiques. Les réserves furent
+              réaménagées plus ou moins correctement durant la même période, un
+              autre acquis des plus importants de cette époque fut la mise à la
+              disposition du public de cinq salles d’expositions permanente
+              consacrées les unes à l'Ethnographie, les autres à l'Archéologie
+              et à l'Entomologie. Suite à l’Africanisation des cadres de l’IMNZ
+              depuis 1986 à nos jours le MNL est dirigé par des Congolais.
+              Aujourd’hui, le Musée National de Lubumbashi est un phare de
+              fierté culturelle dans la région, préservant et présentant
+              l’histoire et le patrimoine riches et diversifiés de la RDC. Il
+              sert de lien vital entre le passé et le présent, offrant aux
+              visiteurs un voyage immersif à travers les multiples facettes de
+              la culture congolaise.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
-    </footer>
-</div>
-</main>
-<script src="script.js"></script>
-</body>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-container">
+          <div class="footer -col">
+            <h4>Institut des musées nationaux du Congo</h4>
+            <p>Préservation et valorisation du patrimoine Congolais.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Liens rapides</h4>
+            <p><a href="/index.html">Accueil</a></p>
+            <p><a href="/collection.html">Collections</a></p>
+            <p><a href="/a-propos.html">A propos</a></p>
+            <p><a href="/historique.html">Historique</a></p>
+          </div>
+          <div class="footer-col">
+            <h4>Suivez-nous</h4>
+            <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Av. du Mussée, Lubumbashi</p>
+            <p>+243 857 779 998</p>
+            <p>contact@museedelubumbashi.org</p>
+          </div>
+        </div>
+        <div class="copyright">©Musée de Lubumbashi – Tous droits réservés</div>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

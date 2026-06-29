@@ -5,8 +5,13 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: #9b8a7a; /* ivoire chaleureux */
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #9b8a7a;
   color: #4e3a22;
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -18,17 +23,20 @@ h3,
 .logo,
 .nav-links a,
 .hero-title {
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
-/* container utilitaire */
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 32px;
 }
 
-/* Navigation */
 .navbar {
   background: #1a1a1a;
   padding: 1rem 2rem;
@@ -79,13 +87,14 @@ h3,
 .nav-links a.active {
   color: #e8c9a0;
 }
-/* hero section about */
+
 .hero-about {
   background: linear-gradient(105deg, #f1ebe2 0%, #fff9f0 100%);
   padding: 80px 0 60px;
   text-align: center;
   border-bottom: 1px solid #eadbc6;
 }
+
 .hero-about h1 {
   font-size: 3.2rem;
   font-weight: 700;
@@ -93,6 +102,7 @@ h3,
   letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
+
 .hero-about p {
   font-size: 1.2rem;
   max-width: 720px;
@@ -100,29 +110,26 @@ h3,
   color: #5a4a38;
   font-weight: 400;
 }
-.breadcrumb {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #7f6b58;
-}
-.breadcrumb a {
-  color: #9b7b4c;
-  text-decoration: none;
-}
 
-/* sections générales */
 section {
   padding: 70px 0;
 }
+
 .section-title {
   font-size: 2.2rem;
   font-weight: 600;
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   margin-bottom: 48px;
   text-align: center;
   color: #2e2a26;
   position: relative;
 }
+
 .section-title:after {
   content: "";
   display: block;
@@ -133,12 +140,12 @@ section {
   border-radius: 4px;
 }
 
-/* histoire + mission double colonne */
 .story-mission {
   display: flex;
   gap: 48px;
   flex-wrap: wrap;
 }
+
 .story-box,
 .mission-box {
   flex: 1;
@@ -149,22 +156,31 @@ section {
   border: 1px solid #f0e7dc;
   transition: transform 0.25s ease;
 }
+
 .story-box:hover,
 .mission-box:hover {
   transform: translateY(-5px);
 }
+
 .story-box h3,
 .mission-box h3 {
   font-size: 1.8rem;
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   margin-bottom: 20px;
   color: #9b7b4c;
 }
+
 .story-box p,
 .mission-box p {
   margin-bottom: 20px;
   color: #3e3a35;
 }
+
 .btn-extra {
   display: inline-block;
   margin-top: 12px;
@@ -174,50 +190,17 @@ section {
   border-bottom: 2px solid #e1d0bb;
   transition: 0.2s;
 }
+
 .btn-extra i {
   margin-left: 6px;
   font-size: 0.85rem;
 }
+
 .btn-extra:hover {
   color: #6f4e2e;
   border-bottom-color: #9b7b4c;
 }
 
-/* chiffres clés */
-.stats-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-.stat-card {
-  background: #ffffffe6;
-  backdrop-filter: blur(2px);
-  padding: 32px 24px;
-  border-radius: 32px;
-  flex: 1;
-  min-width: 160px;
-  border: 1px solid #efe5d9;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-}
-.stat-number {
-  font-size: 2.8rem;
-  font-weight: 800;
-  font-family: "Playfair Display", serif;
-  color: #9b7b4c;
-  line-height: 1.2;
-}
-.stat-label {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-  color: #5a4a38;
-  margin-top: 12px;
-}
-
-/* Équipe */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
@@ -225,6 +208,7 @@ section {
   gap: 40px;
   margin-top: 20px;
 }
+
 .team-member {
   background: white;
   border-radius: 40px;
@@ -235,10 +219,12 @@ section {
   border: 1px solid #f0e4d6;
   box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.05);
 }
+
 .team-member:hover {
   transform: translateY(-8px);
   border-color: #dbc9b2;
 }
+
 .avatar {
   width: 130px;
   height: 130px;
@@ -253,11 +239,13 @@ section {
   font-size: 3.2rem;
   border: 4px solid #fff2e4;
 }
+
 .team-member h4 {
   font-size: 1.4rem;
   font-family: "Playfair Display", serif;
   margin-bottom: 6px;
 }
+
 .role {
   font-size: 0.85rem;
   color: #9b7b4c;
@@ -266,29 +254,32 @@ section {
   text-transform: uppercase;
   margin-bottom: 12px;
 }
+
 .bio {
   font-size: 0.9rem;
   color: #5c554b;
   padding: 0 8px;
 }
 
-/* citation musée */
 .quote-section {
   background: #f2ede4;
   text-align: center;
   padding: 70px 20px;
   margin: 20px 0 0;
 }
+
 .quote-block {
   max-width: 850px;
   margin: 0 auto;
 }
+
 .quote-icon {
   font-size: 3rem;
   color: #c7ad7f;
   opacity: 0.6;
   margin-bottom: 16px;
 }
+
 .quote-text {
   font-size: 1.6rem;
   font-family: "Playfair Display", serif;
@@ -297,7 +288,6 @@ section {
   line-height: 1.4;
 }
 
-/* horaires & infos pratiques */
 .info-panel {
   background: #ffffff;
   border-radius: 40px;
@@ -305,46 +295,60 @@ section {
   box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0e5da;
 }
+
 .info-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 48px;
   justify-content: space-between;
 }
+
 .info-block {
   flex: 1;
 }
+
 .info-block h4 {
   font-size: 1.5rem;
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   margin-bottom: 20px;
   color: #3e2c1f;
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .info-block i {
   color: #9b7b4c;
   font-size: 1.5rem;
 }
+
 .hours-list {
   list-style: none;
 }
+
 .hours-list li {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px dashed #e8ddd0;
 }
+
 .hours-day {
   font-weight: 600;
 }
+
 .address p {
   margin-bottom: 10px;
   display: flex;
   gap: 12px;
   align-items: baseline;
 }
+
 .map-link {
   margin-top: 18px;
   display: inline-block;
@@ -356,14 +360,15 @@ section {
   color: #6f4e2e;
   transition: 0.2s;
 }
+
 .map-link i {
   margin-right: 8px;
 }
+
 .map-link:hover {
   background: #e2d4c4;
 }
 
-/* Footer */
 footer {
   background: #1a1a1a;
   color: #b0a088;
@@ -404,17 +409,155 @@ footer {
   font-size: 0.75rem;
 }
 
-.social-icons a:hover {
-  color: white;
-}
-.copyright {
-  text-align: center;
-  border-top: 1px solid #413b34;
-  padding-top: 28px;
-  font-size: 0.85rem;
+/* Hamburger menu */
+/* ===== MENU BURGER CORRIGÉ ===== */
+
+/* Le menu en overlay (fond semi-transparent) */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-/* responsive */
+.nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Le menu lui-même - glisse depuis la droite */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: #1a1a1a;
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+  transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+/* Bouton de fermeture (croix) */
+.nav-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #e8c9a0;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 5px;
+  line-height: 1;
+}
+
+.nav-close:hover {
+  transform: rotate(90deg);
+  color: white;
+}
+
+/* Logo dans le menu */
+.nav-menu .logo-mobile {
+  margin-top: 40px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.nav-menu .logo-mobile h2 {
+  color: #e8c9a0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.nav-menu .logo-mobile p {
+  color: #9b8a7a;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+/* Liens dans le menu */
+.nav-menu .nav-links-mobile {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-menu .nav-links-mobile li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-menu .nav-links-mobile a {
+  display: block;
+  color: #f0ebe3;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.nav-menu .nav-links-mobile a:hover,
+.nav-menu .nav-links-mobile a.active {
+  background: #b87c4f;
+  color: white;
+}
+
+/* Cacher le hamburger sur desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger .bar {
+  width: 28px;
+  height: 3px;
+  background-color: #e8c9a0;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Cacher les anciens liens */
+  .nav-links {
+    display: none !important;
+  }
+}
+
 @media (max-width: 800px) {
   .container {
     padding: 0 24px;
@@ -434,9 +577,6 @@ footer {
   .story-mission {
     flex-direction: column;
   }
-  .stats-grid {
-    justify-content: center;
-  }
   .info-flex {
     flex-direction: column;
   }
@@ -448,61 +588,6 @@ footer {
   }
   .section-title {
     font-size: 1.9rem;
-  }
-}
-
-/* Hamburger menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: #e8c9a0;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-
-/* Animation du hamburger en "X" lorsque ouvert */
-.hamburger.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Masquer les liens par défaut sur mobile */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: #1a1a1a;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    gap: 1.5rem;
-    transition: left 0.3s ease;
-    z-index: 999;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-  .nav-links li {
-    margin: 0;
   }
 }
 

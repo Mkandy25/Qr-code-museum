@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Accueil</title>
   </head>
@@ -13,24 +12,48 @@
       <nav class="navbar">
         <div class="nav-container">
           <div class="logo">
-            <h1>Mussée National de Lubumbashi</h1>
+            <h1>Musée National de Lubumbashi</h1>
             <p>Institut des musées nationaux du Congo</p>
           </div>
-          <!-- Bouton hamburger pour mobile -->
+
+          <!-- Bouton hamburger -->
           <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
           </div>
-          <ul class="nav-links" id="navLinks">
+
+          <!-- Menu desktop -->
+          <ul class="nav-links">
             <li><a href="/index.html">Accueil</a></li>
-            <li><a href="/collection.html" class="active">Collections</a></li>
+            <li><a href="/collection.html">Collections</a></li>
             <li><a href="/a-propos.html">À propos</a></li>
             <li><a href="/historique.html">Historique</a></li>
           </ul>
         </div>
       </nav>
     </header>
+    <section>
+      <!-- ===== NOUVEAU MENU MOBILE ===== -->
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <div class="nav-menu" id="navMenu">
+        <!-- Bouton fermeture (croix) -->
+        <button class="nav-close" id="navClose">✕</button>
+
+        <div class="logo-mobile">
+          <h2>Musée National</h2>
+          <p>Institut des musées nationaux du Congo</p>
+        </div>
+
+        <ul class="nav-links-mobile">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/collection.html">Collections</a></li>
+          <li><a href="/a-propos.html">À propos</a></li>
+          <li><a href="/historique.html">Historique</a></li>
+        </ul>
+      </div>
+    </section>
     <main>
       <!-- Hero Section -->
       <section class="hero">
@@ -53,7 +76,7 @@
         <p class="section-subtitle">
           Chaque oeuvre raconte une histoire. Découvrez notre musée.
         </p>
-      
+
         <div class="carousel">
           <button class="carousel-btn prev" type="button">‹</button>
 
@@ -63,7 +86,7 @@
               <div class="art-card">
                 <div class="card-image">
                   <img
-                    src="/oeuvres/Masque_BWALI_BUKISHI.html"
+                    src="/images/Masque_Bwali_Bukishi.jpeg"
                     alt="Masque Bwali Bukishi"
                   />
                 </div>
@@ -71,8 +94,9 @@
                   <span class="card-category">Masque d'ambiance</span>
                   <h3 class="card-title">Masque Bwali Bukishi</h3>
                   <p class="card-description">
-                    Symbole de joie et de divertissement populaire. Sculpté selon
-                    les traditions ancestrales pour célébrer la vie et les récoltes.
+                    Symbole de joie et de divertissement populaire. Sculpté
+                    selon les traditions ancestrales pour célébrer la vie et les
+                    récoltes.
                   </p>
                   <a href="/oeuvres/Masque_Bwali_Bukishi.html" class="btn-card">
                     En savoir plus →
@@ -91,7 +115,8 @@
                   <p class="card-description">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Explicabo, eveniet. Iste repellendus praesentium architecto
-                    atque quaerat deleniti veniam, debitis officiis eligendi quis.
+                    atque quaerat deleniti veniam, debitis officiis eligendi
+                    quis.
                   </p>
                   <a href="#" class="btn-card">En savoir plus →</a>
                 </div>
@@ -116,17 +141,14 @@
               <!-- Carte 4 -->
               <div class="art-card">
                 <div class="card-image">
-                  <img
-                    src="/images/Fumani.jpeg"
-                    alt="Sculpture Fumani"
-                  />
+                  <img src="/images/Fumani.jpeg" alt="Sculpture Fumani" />
                 </div>
                 <div class="card-content">
                   <span class="card-category">Sculpture</span>
                   <h3 class="card-title">FUMANI</h3>
                   <p class="card-description">
-                    Le Fumani est une sculpture funéraire en pierre utilisée pour
-                    honorer les ancêtres et marquer les tombes.
+                    Le Fumani est une sculpture funéraire en pierre utilisée
+                    pour honorer les ancêtres et marquer les tombes.
                   </p>
                   <a href="/oeuvres/Sculpture_FUMANI.html" class="btn-card">
                     En savoir plus →
@@ -164,8 +186,8 @@
                   <span class="card-category">Masque</span>
                   <h3 class="card-title">PWOOM ITOK</h3>
                   <p class="card-description">
-                    Masque facial en bois rehaussé d'une coiffure à trois lobes en
-                    fibres de rapkia.
+                    Masque facial en bois rehaussé d'une coiffure à trois lobes
+                    en fibres de rapkia.
                   </p>
                   <a href="/oeuvres/Masque_PWOOM_ITOK.html" class="btn-card">
                     En savoir plus →
@@ -182,8 +204,8 @@
                   <span class="card-category">Masque d'ambiance</span>
                   <h3 class="card-title">ROND KIFWEBENGO</h3>
                   <p class="card-description">
-                    Masque orné d'une haute crête. Symbole de fierté masculine et
-                    de bravoure.
+                    Masque orné d'une haute crête. Symbole de fierté masculine
+                    et de bravoure.
                   </p>
                   <a
                     href="/oeuvres/Masque_ROND_KIFWEBENGO_ MUDIMBULA .html"
@@ -206,8 +228,9 @@
                   <span class="card-category">Masque</span>
                   <h3 class="card-title">Mwana Pwo</h3>
                   <p class="card-description">
-                    Accompagnait les défunts lors des rites funéraires et protégeait
-                    l'âme durant son voyage vers le monde des ancêtres.
+                    Accompagnait les défunts lors des rites funéraires et
+                    protégeait l'âme durant son voyage vers le monde des
+                    ancêtres.
                   </p>
                   <a href="/oeuvres/Masque_MWANA_PWO.html" class="btn-card">
                     En savoir plus →
@@ -224,8 +247,8 @@
                   <span class="card-category">Statue & Figure</span>
                   <h3 class="card-title">POTERIE KONGO</h3>
                   <p class="card-description">
-                    Symbole de fertilité et de protection maternelle. Offerte aux
-                    jeunes mariées pour favoriser la descendance.
+                    Symbole de fertilité et de protection maternelle. Offerte
+                    aux jeunes mariées pour favoriser la descendance.
                   </p>
                   <a href="/oeuvres/POTERIE_KONGO.html" class="btn-card">
                     En savoir plus →
@@ -260,8 +283,8 @@
                   <span class="card-category">Masque</span>
                   <h3 class="card-title">Cihongo</h3>
                   <p class="card-description">
-                    Porté par les meilleurs danseurs lors des compétitions et des
-                    festivités. Légèreté et agilité.
+                    Porté par les meilleurs danseurs lors des compétitions et
+                    des festivités. Légèreté et agilité.
                   </p>
                   <a href="/oeuvres/Masque_CIHONGO.html" class="btn-card">
                     En savoir plus →
@@ -273,7 +296,6 @@
 
           <button class="carousel-btn next" type="button">›</button>
         </div>
-      </section>
       </section>
     </main>
 

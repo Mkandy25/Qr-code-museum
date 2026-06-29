@@ -15,7 +15,6 @@ body {
   line-height: 1.5;
 }
 
-/* Navigation */
 .navbar {
   background: #1a1a1a;
   padding: 1rem 2rem;
@@ -67,7 +66,6 @@ body {
   color: #e8c9a0;
 }
 
-/* En-tête de page */
 .page-header {
   background:
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -91,7 +89,6 @@ body {
   opacity: 0.9;
 }
 
-/* Filtres */
 .filters-section {
   padding: 2rem 2rem 0;
   max-width: 1400px;
@@ -126,21 +123,10 @@ body {
   color: white;
 }
 
-/* Section collections */
 .collections-section {
   padding: 2rem 2rem 5rem;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.category-title {
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: #3a2c24;
-  margin: 2rem 0 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e8c9a0;
-  display: inline-block;
 }
 
 .collection-grid {
@@ -150,7 +136,6 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Carte œuvre */
 .art-card {
   background: white;
   border-radius: 20px;
@@ -182,20 +167,6 @@ body {
 
 .art-card:hover .card-image img {
   transform: scale(1.05);
-}
-
-.card-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #e8c9a0;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  backdrop-filter: blur(4px);
 }
 
 .card-content {
@@ -265,33 +236,6 @@ body {
   color: white;
 }
 
-/* Statistiques */
-.stats-section {
-  background: #f0ebe2;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.stat-item h3 {
-  font-size: 2.5rem;
-  color: #b87c4f;
-  font-weight: 500;
-}
-
-.stat-item p {
-  color: #4a3e34;
-  font-size: 0.9rem;
-}
-
-/* Footer */
 footer {
   background: #1a1a1a;
   color: #b0a088;
@@ -331,24 +275,133 @@ footer {
   border-top: 1px solid #2c2c2c;
   font-size: 0.75rem;
 }
-
 /* Hamburger menu */
+/* ===== MENU BURGER CORRIGÉ ===== */
+
+/* Le menu en overlay (fond semi-transparent) */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Le menu lui-même - glisse depuis la droite */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: #1a1a1a;
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+  transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+/* Bouton de fermeture (croix) */
+.nav-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #e8c9a0;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 5px;
+  line-height: 1;
+}
+
+.nav-close:hover {
+  transform: rotate(90deg);
+  color: white;
+}
+
+/* Logo dans le menu */
+.nav-menu .logo-mobile {
+  margin-top: 40px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.nav-menu .logo-mobile h2 {
+  color: #e8c9a0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.nav-menu .logo-mobile p {
+  color: #9b8a7a;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+/* Liens dans le menu */
+.nav-menu .nav-links-mobile {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-menu .nav-links-mobile li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-menu .nav-links-mobile a {
+  display: block;
+  color: #f0ebe3;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.nav-menu .nav-links-mobile a:hover,
+.nav-menu .nav-links-mobile a.active {
+  background: #b87c4f;
+  color: white;
+}
+
+/* Cacher le hamburger sur desktop */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 1001;
+  position: relative;
 }
 
 .hamburger .bar {
-  width: 25px;
+  width: 28px;
   height: 3px;
   background-color: #e8c9a0;
   border-radius: 3px;
   transition: 0.3s;
 }
 
-/* Animation du hamburger en "X" lorsque ouvert */
 .hamburger.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -359,36 +412,34 @@ footer {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Hamburger menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-.hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: #e8c9a0;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-.hamburger.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
 
-/* Barre de recherche */
+  /* Cacher les anciens liens */
+  .nav-links {
+    display: none !important;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Cacher les anciens liens */
+  .nav-links {
+    display: none !important;
+  }
+}
 .search-container {
   max-width: 500px;
   margin: 1.5rem auto 0 auto;
   text-align: center;
 }
+
 #searchInput {
   width: 100%;
   padding: 12px 20px;
@@ -399,37 +450,12 @@ footer {
   outline: none;
   transition: 0.2s;
 }
+
 #searchInput:focus {
   border-color: #b87c4f;
   box-shadow: 0 0 0 2px rgba(184, 124, 79, 0.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: #1a1a1a;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    gap: 1.5rem;
-    transition: left 0.3s ease;
-    z-index: 999;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-}
-
-/* Masquer les liens par défaut sur mobile */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
