@@ -276,9 +276,6 @@ footer {
   font-size: 0.75rem;
 }
 /* Hamburger menu */
-/* ===== MENU BURGER CORRIGÉ ===== */
-
-/* Le menu en overlay (fond semi-transparent) */
 .nav-overlay {
   display: none;
   position: fixed;
