@@ -18,7 +18,7 @@
     <script type="text/javascript">
       (function () {
         emailjs.init({
-          publicKey: "LBZ65A3GRNRDZFB",
+          publicKey: "LBZ65Au3GRNrDJZFB", // ← TA NOUVELLE CLÉ PUBLIQUE
         });
       })();
     </script>
@@ -285,7 +285,7 @@
           totalPrice: totalPrice,
         };
 
-        // ✅ TES IDENTIFIANTS SONT DÉJÀ INSÉRÉS
+        // ✅ TES IDENTIFIANTS
         emailjs
           .send("service_cu9juww", "template_1b8z0jt", templateParams)
           .then(
@@ -293,7 +293,7 @@
               const feedback = document.getElementById("feedbackMessage");
               feedback.className = "reservation-feedback show";
               feedback.innerHTML =
-                '<i class="fas fa-circle-check"></i> ✅ Réservation confirmée ! Un email a été envoyé à ' +
+                '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
                 email +
                 ".";
               document.getElementById("bookingForm").reset();
