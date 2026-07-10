@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Réserver un billet · Musée National de Lubumbashi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style_billeterie.css" />
+
+    <!-- ===== EMAILJS ===== -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "LBZ65A3GRNRDZFB",
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <h1>Musée National de Lubumbashi</h1>
+          <p>Institut des musées nationaux du Congo</p>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/collection.html">Collections</a></li>
+          <li><a href="/a-propos.html">À propos</a></li>
+          <li><a href="/historique.html">Historique</a></li>
+          <li><a href="/billeterie.html" class="active">Billetterie</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <div class="nav-menu" id="navMenu">
+      <button class="nav-close" id="navClose">✕</button>
+      <div class="logo-mobile">
+        <h2>Musée National</h2>
+        <p>Institut des musées nationaux du Congo</p>
+      </div>
+      <ul class="nav-links-mobile">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><a href="/collection.html">Collections</a></li>
+        <li><a href="/a-propos.html">À propos</a></li>
+        <li><a href="/historique.html">Historique</a></li>
+        <li><a href="/billeterie.html" class="active">Billetterie</a></li>
+      </ul>
+    </div>
+
+    <!-- ===== CONTENU PRINCIPAL ===== -->
+    <div class="main-content">
+      <div class="card">
+        <div class="museum-badge">
+          <i class="fas fa-landmark" style="margin-right: 6px"></i> Musée
+          National de Lubumbashi
+        </div>
+        <h1>
+          <i class="fas fa-ticket-alt"></i> Réservation de Billets d'entrée
+        </h1>
+        <div class="subhead">
+          <i class="fas fa-clock" style="margin-right: 8px; color: #b8864b"></i>
+          Horaire
+          <p>
+            Lundi-Vendredi de 07h30-15h00 <br />Samedi de 09h00-15h00
+            <br />Dimanche: Fermé!
+          </p>
+        </div>
+
+        <form id="bookingForm" onsubmit="sendEmail(event)">
+          <div class="row-2col">
+            <div class="form-group">
+              <label for="fullName"
+                ><i class="fas fa-user"></i> Nom complet</label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Manne Nswana"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="manne@gmail.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row-2col">
+            <div class="form-group">
+              <label for="visitDate"
+                ><i class="fas fa-calendar-day"></i> Date de visite</label
+              >
+              <input type="date" id="visitDate" name="visitDate" required />
+            </div>
+            <div class="form-group">
+              <label for="ticketType"
+                ><i class="fas fa-tags"></i> Type de billet</label
+              >
+              <select id="ticketType" name="ticketType">
+                <option value="Adulte (10.000 Fc)">Adulte · 10.000 Fc</option>
+                <option value="Enfant (5.000 Fc)">Enfant · 5.000 Fc</option>
+                <option value="Etrangers (11.000 Fc)">
+                  Etrangers · 11.000 Fc
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity"
+              ><i class="fas fa-sort-amount-up"></i> Quantité</label
+            >
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              max="20"
+              value="1"
+              step="1"
+            />
+            <div class="hint">
+              <i class="fas fa-info-circle"></i> Maximum 20 billets par
+              réservation
+            </div>
+          </div>
+
+          <div class="price-preview">
+            <span class="price-label"
+              ><i class="fas fa-money-bill-wave"></i> Total estimé</span
+            >
+            <span class="price-total" id="totalPrice"
+              >10.000 <small>Fc</small></span
+            >
+          </div>
+
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-check-circle"></i> Réserver maintenant
+          </button>
+        </form>
+
+        <div id="feedbackMessage" class="reservation-feedback">
+          <i class="fas fa-circle-check"></i>
+          <span id="feedbackText">Votre réservation est confirmée !</span>
+        </div>
+
+        <div class="security-note">
+          <i class="fas fa-shield-alt"></i> Paiement sécurisé · Annulation
+          gratuite jusqu'à 24h avant
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Institut des musées nationaux du Congo</h4>
+          <p>Préservation et valorisation du patrimoine Congolais.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liens rapides</h4>
+          <p><a href="/index.html">Accueil</a></p>
+          <p><a href="/collection.html">Collections</a></p>
+          <p><a href="/a-propos.html">À propos</a></p>
+          <p><a href="/historique.html">Historique</a></p>
+          <p><a href="/billeterie.html">Billetterie</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Av. du Musée, Lubumbashi</p>
+          <p>+243 857 779 998</p>
+          <p>contact@museedelubumbashi.org</p>
+        </div>
+      </div>
+      <div class="copyright">© Musée de Lubumbashi – Tous droits réservés</div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- ===== SCRIPTS ===== -->
+    <!-- ============================================ -->
+    <script>
+      // ============================================
+      // MENU BURGER
+      // ============================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+        const navOverlay = document.getElementById("navOverlay");
+        const navClose = document.getElementById("navClose");
+        const body = document.body;
+
+        function openMenu() {
+          hamburger.classList.add("active");
+          navMenu.classList.add("active");
+          navOverlay.classList.add("active");
+          body.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+          navOverlay.classList.remove("active");
+          body.style.overflow = "";
+        }
+
+        if (hamburger) {
+          hamburger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (navMenu.classList.contains("active")) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
+          });
+        }
+
+        if (navClose) {
+          navClose.addEventListener("click", closeMenu);
+        }
+
+        if (navOverlay) {
+          navOverlay.addEventListener("click", closeMenu);
+        }
+
+        document
+          .querySelectorAll(".nav-links-mobile a")
+          .forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+          });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && navMenu.classList.contains("active")) {
+            closeMenu();
+          }
+        });
+      });
+
+      // ============================================
+      // ENVOI D'EMAIL AVEC EMAILJS
+      // ============================================
+      function sendEmail(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const visitDate = document.getElementById("visitDate").value;
+        const ticketType = document.getElementById("ticketType").value;
+        const quantity = document.getElementById("quantity").value;
+        const totalPrice = document.getElementById("totalPrice").innerText;
+
+        const templateParams = {
+          fullName: fullName,
+          email: email,
+          visitDate: visitDate,
+          ticketType: ticketType,
+          quantity: quantity,
+          totalPrice: totalPrice,
+        };
+
+        // ✅ TES IDENTIFIANTS SONT DÉJÀ INSÉRÉS
+        emailjs
+          .send("service_cu9juww", "template_1b8z0jt", templateParams)
+          .then(
+            function (response) {
+              const feedback = document.getElementById("feedbackMessage");
+              feedback.className = "reservation-feedback show";
+              feedback.innerHTML =
+                '<i class="fas fa-circle-check"></i> ✅ Réservation confirmée ! Un email a été envoyé à ' +
+                email +
+                ".";
+              document.getElementById("bookingForm").reset();
+              window.updateTotalPrice();
+            },
+            function (error) {
+              const feedback = document.getElementById("feedbackMessage");
+              feedback.className = "reservation-feedback show error";
+              feedback.innerHTML =
+                '<i class="fas fa-circle-exclamation"></i> ❌ Erreur : ' +
+                error.text;
+            },
+          );
+      }
+
+      // ============================================
+      // MISE À JOUR DU PRIX
+      // ============================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const ticketType = document.getElementById("ticketType");
+        const quantity = document.getElementById("quantity");
+        const totalPriceSpan = document.getElementById("totalPrice");
+
+        const PRICES = {
+          "Adulte (10.000 Fc)": 10000,
+          "Enfant (5.000 Fc)": 5000,
+          "Etrangers (11.000 Fc)": 11000,
+        };
+
+        window.updateTotalPrice = function () {
+          const type = ticketType.value;
+          let qty = parseInt(quantity.value, 10) || 1;
+          if (qty < 1) qty = 1;
+          if (qty > 20) qty = 20;
+          quantity.value = qty;
+          let unitPrice = PRICES[type] || 10000;
+          let total = unitPrice * qty;
+          totalPriceSpan.innerHTML =
+            total.toLocaleString("fr-FR") + " <small>Fc</small>";
+        };
+
+        ticketType.addEventListener("change", window.updateTotalPrice);
+        quantity.addEventListener("input", window.updateTotalPrice);
+        window.updateTotalPrice();
+
+        // Date par défaut (demain)
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const year = tomorrow.getFullYear();
+        const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
+        const day = String(tomorrow.getDate()).padStart(2, "0");
+        document.getElementById("visitDate").value = `${year}-${month}-${day}`;
+      });
+    </script>
+  </body>
+</html>
