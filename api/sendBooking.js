@@ -1,10 +1,9 @@
 import { Resend } from "resend";
 
-// La variable d'environnement s'appelle API_KEY sur Vercel
 const resend = new Resend(process.env.API_KEY);
 
 export default async function handler(req, res) {
-  // Autoriser CORS
+  // CORS
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -16,7 +15,6 @@ export default async function handler(req, res) {
     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
   );
 
-  // Gérer la requête OPTIONS (preflight CORS)
   if (req.method === "OPTIONS") {
     res.status(200).end();
     return;
@@ -38,9 +36,7 @@ export default async function handler(req, res) {
     const currentDate =
       now.toLocaleDateString("fr-FR") + " à " + now.toLocaleTimeString("fr-FR");
 
-    // ========================================
-    // EMAIL 1 : Au visiteur (confirmation)
-    // ========================================
+    // Email au visiteur
     await resend.emails.send({
       from: "Musée National de Lubumbashi <onboarding@resend.dev>",
       to: email,
@@ -62,9 +58,7 @@ export default async function handler(req, res) {
       `,
     });
 
-    // ========================================
-    // EMAIL 2 : À l'admin (notification)
-    // ========================================
+    // Email à l'admin
     await resend.emails.send({
       from: "Musée National de Lubumbashi <onboarding@resend.dev>",
       to: "andymbuyi08@gmail.com",
