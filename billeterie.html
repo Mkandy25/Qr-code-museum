@@ -18,7 +18,7 @@
     <script type="text/javascript">
       (function () {
         emailjs.init({
-          publicKey: "LBZ65Au3GRNrDJZFB", // ← TA NOUVELLE CLÉ PUBLIQUE
+          publicKey: "LBZ65Au3GRNrDJZFB",
         });
       })();
     </script>
@@ -264,11 +264,12 @@
       });
 
       // ============================================
-      // ENVOI D'EMAIL AVEC EMAILJS
+      // ENVOI D'EMAIL AVEC EMAILJS (2 EMAILS)
       // ============================================
       function sendEmail(event) {
         event.preventDefault();
 
+        // Récupérer les valeurs du formulaire
         const fullName = document.getElementById("fullName").value;
         const email = document.getElementById("email").value;
         const visitDate = document.getElementById("visitDate").value;
@@ -276,6 +277,14 @@
         const quantity = document.getElementById("quantity").value;
         const totalPrice = document.getElementById("totalPrice").innerText;
 
+        // Date actuelle pour l'admin
+        const now = new Date();
+        const currentDate =
+          now.toLocaleDateString("fr-FR") +
+          " à " +
+          now.toLocaleTimeString("fr-FR");
+
+        // Paramètres communs aux deux emails
         const templateParams = {
           fullName: fullName,
           email: email,
@@ -283,30 +292,50 @@
           ticketType: ticketType,
           quantity: quantity,
           totalPrice: totalPrice,
+          currentDate: currentDate,
         };
 
-        // ✅ TES IDENTIFIANTS
-        emailjs
-          .send("service_cu9juww", "template_1b8z0jt", templateParams)
-          .then(
-            function (response) {
-              const feedback = document.getElementById("feedbackMessage");
-              feedback.className = "reservation-feedback show";
-              feedback.innerHTML =
-                '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
-                email +
-                ".";
-              document.getElementById("bookingForm").reset();
-              window.updateTotalPrice();
-            },
-            function (error) {
-              const feedback = document.getElementById("feedbackMessage");
-              feedback.className = "reservation-feedback show error";
-              feedback.innerHTML =
-                '<i class="fas fa-circle-exclamation"></i> ❌ Erreur : ' +
-                error.text;
-            },
-          );
+        // ========================================
+        // 1. EMAIL AU VISITEUR (CONFIRMATION)
+        // ========================================
+        const visitorTemplateId = "template_d3vz62g";
+
+        emailjs.send("service_cu9juww", visitorTemplateId, templateParams).then(
+          function (response) {
+            console.log("✅ Email au visiteur envoyé !");
+          },
+          function (error) {
+            console.log("❌ Erreur email visiteur :", error);
+          },
+        );
+
+        // ========================================
+        // 2. EMAIL À L'ADMIN (NOTIFICATION)
+        // ========================================
+        const adminTemplateId = "template_1b8z0jt";
+
+        emailjs.send("service_cu9juww", adminTemplateId, templateParams).then(
+          function (response) {
+            console.log("✅ Email à l'admin envoyé !");
+          },
+          function (error) {
+            console.log("❌ Erreur email admin :", error);
+          },
+        );
+
+        // ========================================
+        // 3. AFFICHER LE MESSAGE DE SUCCÈS
+        // ========================================
+        const feedback = document.getElementById("feedbackMessage");
+        feedback.className = "reservation-feedback show";
+        feedback.innerHTML =
+          '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
+          email +
+          ".";
+
+        // Réinitialiser le formulaire
+        document.getElementById("bookingForm").reset();
+        window.updateTotalPrice();
       }
 
       // ============================================
