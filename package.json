@@ -1,5 +1,8 @@
 {
+  "name": "qr-code-museum",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "resend": "^6.17.2"
+    "resend": "^3.0.0"
   }
 }
