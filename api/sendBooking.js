@@ -1,25 +1,39 @@
 import { Resend } from "resend";
 
-// La clé API est dans les variables d'environnement Vercel
-const resend = new Resend(process.env.RESEND_API_KEY);
+// La variable d'environnement s'appelle API_KEY sur Vercel
+const resend = new Resend(process.env.API_KEY);
 
 export default async function handler(req, res) {
-  // 1. Vérifier que c'est bien une requête POST
+  // Autoriser CORS
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+  );
+
+  // Gérer la requête OPTIONS (preflight CORS)
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
   try {
-    // 2. Récupérer les données du formulaire
     const { fullName, email, visitDate, ticketType, quantity, totalPrice } =
       req.body;
 
-    // 3. Validation des données
     if (!fullName || !email || !visitDate || !ticketType || !quantity) {
       return res.status(400).json({ error: "Tous les champs sont requis" });
     }
 
-    // 4. Date actuelle pour l'admin
     const now = new Date();
     const currentDate =
       now.toLocaleDateString("fr-FR") + " à " + now.toLocaleTimeString("fr-FR");
@@ -69,7 +83,6 @@ export default async function handler(req, res) {
       `,
     });
 
-    // 5. Réponse de succès
     return res.status(200).json({
       success: true,
       message: "Réservation confirmée ! Les emails ont été envoyés.",
