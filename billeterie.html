@@ -9,19 +9,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="/css/style_billeterie.css" />
-
-    <!-- ===== EMAILJS ===== -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "LBZ65Au3GRNrDJZFB",
-        });
-      })();
-    </script>
   </head>
   <body>
     <!-- ===== NAVIGATION ===== -->
@@ -157,7 +144,7 @@
             >
           </div>
 
-          <button type="submit" class="btn-primary">
+          <button type="submit" class="btn-primary" id="submitBtn">
             <i class="fas fa-check-circle"></i> Réserver maintenant
           </button>
         </form>
@@ -264,9 +251,9 @@
       });
 
       // ============================================
-      // ENVOI D'EMAIL AVEC EMAILJS (2 EMAILS)
+      // ENVOI D'EMAIL VIA L'API RESEND (SERVERLESS)
       // ============================================
-      function sendEmail(event) {
+      async function sendEmail(event) {
         event.preventDefault();
 
         // Récupérer les valeurs du formulaire
@@ -277,66 +264,63 @@
         const quantity = document.getElementById("quantity").value;
         const totalPrice = document.getElementById("totalPrice").innerText;
 
-        // Date actuelle pour l'admin
-        const now = new Date();
-        const currentDate =
-          now.toLocaleDateString("fr-FR") +
-          " à " +
-          now.toLocaleTimeString("fr-FR");
+        // Désactiver le bouton pendant l'envoi
+        const submitBtn = document.getElementById("submitBtn");
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
-        // Paramètres communs aux deux emails
-        const templateParams = {
-          fullName: fullName,
-          email: email,
-          visitDate: visitDate,
-          ticketType: ticketType,
-          quantity: quantity,
-          totalPrice: totalPrice,
-          currentDate: currentDate,
-        };
+        try {
+          // Envoyer vers l'API Vercel
+          const response = await fetch("/api/sendBooking", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              fullName: fullName,
+              email: email,
+              visitDate: visitDate,
+              ticketType: ticketType,
+              quantity: quantity,
+              totalPrice: totalPrice,
+            }),
+          });
 
-        // ========================================
-        // 1. EMAIL AU VISITEUR (CONFIRMATION)
-        //    Template ID: template_d3vz62g
-        // ========================================
-        const visitorTemplateId = "template_d3vz62g";
+          const data = await response.json();
 
-        emailjs.send("service_cu9juww", visitorTemplateId, templateParams).then(
-          function (response) {
-            console.log("✅ Email au visiteur envoyé !");
-          },
-          function (error) {
-            console.log("❌ Erreur email visiteur :", error);
-          },
-        );
+          // Afficher le feedback
+          const feedback = document.getElementById("feedbackMessage");
 
-        // ========================================
-        // 2. EMAIL À L'ADMIN (NOTIFICATION)
-        //    Template ID: template_1b8z0jt
-        // ========================================
-        const adminTemplateId = "template_1b8z0jt";
+          if (response.ok) {
+            // Succès
+            feedback.className = "reservation-feedback show";
+            feedback.innerHTML =
+              '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
+              email +
+              ".";
+            document.getElementById("bookingForm").reset();
+            window.updateTotalPrice();
+          } else {
+            // Erreur venant du serveur
+            feedback.className = "reservation-feedback show error";
+            feedback.innerHTML =
+              '<i class="fas fa-circle-exclamation"></i> ❌ Erreur : ' +
+              (data.error || "Problème lors de l'envoi");
+          }
+        } catch (error) {
+          // Erreur réseau
+          const feedback = document.getElementById("feedbackMessage");
+          feedback.className = "reservation-feedback show error";
+          feedback.innerHTML =
+            '<i class="fas fa-circle-exclamation"></i> ❌ Erreur réseau : ' +
+            error.message;
+        }
 
-        emailjs.send("service_cu9juww", adminTemplateId, templateParams).then(
-          function (response) {
-            console.log("✅ Email à l'admin envoyé !");
-          },
-          function (error) {
-            console.log("❌ Erreur email admin :", error);
-          },
-        );
-
-        // ========================================
-        // 3. AFFICHER LE MESSAGE DE SUCCÈS
-        // ========================================
-        const feedback = document.getElementById("feedbackMessage");
-        feedback.className = "reservation-feedback show";
-        feedback.innerHTML =
-          '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
-          email +
-          ".";
-
-        document.getElementById("bookingForm").reset();
-        window.updateTotalPrice();
+        // Réactiver le bouton
+        submitBtn.disabled = false;
+        submitBtn.innerHTML =
+          '<i class="fas fa-check-circle"></i> Réserver maintenant';
       }
 
       // ============================================
