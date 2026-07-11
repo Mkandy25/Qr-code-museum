@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     // Email au visiteur
     await resend.emails.send({
       from: "Musée National de Lubumbashi <onboarding@resend.dev>",
-      to: email,
+      to: "kalonjiandymka@gmail.com",
       subject: "✅ Confirmation de réservation - Musée National de Lubumbashi",
       html: `
         <h2>Bonjour ${fullName},</h2>
