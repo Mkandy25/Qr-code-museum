@@ -296,16 +296,16 @@
             // Succès
             feedback.className = "reservation-feedback show";
             feedback.innerHTML =
-              '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée ! Un email a été envoyé à ' +
-              email +
-              ".";
+              '<i class="fas fa-circle-check"></i> 🎉 Réservation confirmée !';
+
+            (".");
             document.getElementById("bookingForm").reset();
             window.updateTotalPrice();
           } else {
             // Erreur venant du serveur
             feedback.className = "reservation-feedback show error";
             feedback.innerHTML =
-              '<i class="fas fa-circle-exclamation"></i> ❌ Erreur : ' +
+              '<i class="fas fa-circle-exclamation"></i>  Erreur : ' +
               (data.error || "Problème lors de l'envoi");
           }
         } catch (error) {
@@ -313,7 +313,7 @@
           const feedback = document.getElementById("feedbackMessage");
           feedback.className = "reservation-feedback show error";
           feedback.innerHTML =
-            '<i class="fas fa-circle-exclamation"></i> ❌ Erreur réseau : ' +
+            '<i class="fas fa-circle-exclamation"></i>  Erreur réseau : ' +
             error.message;
         }
 

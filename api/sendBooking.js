@@ -1,9 +1,31 @@
-import { Resend } from "resend";
+const BREVO_API_KEY = process.env.BREVO_API_KEY || process.env.API_KEY;
+const SENDER_EMAIL = process.env.SENDER_EMAIL || "andymbuyi08@gmail.com";
+const SENDER_NAME = process.env.SENDER_NAME || "Musée National de Lubumbashi";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08gmail.com";
 
-const resend = new Resend(process.env.API_KEY);
+async function sendBrevoEmail(to, toName, subject, htmlContent) {
+  const response = await fetch("https://qr-code-museum.vercel.app/", {
+    method: "POST",
+    headers: {
+      "api-key": BREVO_API_KEY,
+      "content-type": "application/json",
+      accept: "application/json",
+    },
+    body: JSON.stringify({
+      sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+      to: [{ email: to, name: toName || to }],
+      subject,
+      htmlContent,
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.message || `Brevo HTTP ${response.status}`);
+  }
+}
 
 export default async function handler(req, res) {
-  // CORS
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -24,6 +46,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
+  if (!BREVO_API_KEY) {
+    return res.status(500).json({ error: "Clé Brevo non configurée" });
+  }
+
   try {
     const { fullName, email, visitDate, ticketType, quantity, totalPrice } =
       req.body;
@@ -36,12 +62,11 @@ export default async function handler(req, res) {
     const currentDate =
       now.toLocaleDateString("fr-FR") + " à " + now.toLocaleTimeString("fr-FR");
 
-    // Email au visiteur
-    await resend.emails.send({
-      from: "Musée National de Lubumbashi <onboarding@resend.dev>",
-      to: email,
-      subject: "✅ Confirmation de réservation - Musée National de Lubumbashi",
-      html: `
+    await sendBrevoEmail(
+      email,
+      fullName,
+      "✅ Confirmation de réservation - Musée National de Lubumbashi",
+      `
         <h2>Bonjour ${fullName},</h2>
         <p>Votre réservation pour le Musée National de Lubumbashi a bien été confirmée !</p>
         <br>
@@ -56,14 +81,13 @@ export default async function handler(req, res) {
         <p>À très bientôt !</p>
         <p><strong>L'équipe du Musée National de Lubumbashi</strong></p>
       `,
-    });
+    );
 
-    // Email à l'admin
-    await resend.emails.send({
-      from: "Musée National de Lubumbashi <onboarding@resend.dev>",
-      to: "mannenswana2708@gmail.com",
-      subject: "📋 Nouvelle réservation - Musée National de Lubumbashi",
-      html: `
+    await sendBrevoEmail(
+      ADMIN_EMAIL,
+      "Admin Musée",
+      "📋 Nouvelle réservation - Musée National de Lubumbashi",
+      `
         <h2>Nouvelle réservation reçue !</h2>
         <br>
         <p><strong>👤 Nom :</strong> ${fullName}</p>
@@ -75,14 +99,14 @@ export default async function handler(req, res) {
         <br>
         <p><em>Réservation effectuée le ${currentDate}</em></p>
       `,
-    });
+    );
 
     return res.status(200).json({
       success: true,
       message: "Réservation confirmée ! Les emails ont été envoyés.",
     });
   } catch (error) {
-    console.error("❌ Erreur :", error);
+    console.error("❌ Erreur Brevo :", error);
     return res.status(500).json({
       error: "Erreur lors de l'envoi des emails",
       details: error.message,
