@@ -1,13 +1,13 @@
-const API_KEY = process.env.API_KEY || process.env.API_KEY;
+const BREVO_API_KEY = process.env.API_KEY;
 const SENDER_EMAIL = process.env.SENDER_EMAIL || "andymbuyi08@gmail.com";
 const SENDER_NAME = process.env.SENDER_NAME || "Musée National de Lubumbashi";
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08@gmail.com";
 
 async function sendBrevoEmail(to, toName, subject, htmlContent) {
-  const response = await fetch("https://qr-code-museum.vercel.app/", {
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
-      "api-key": API_KEY,
+      "api-key": BREVO_API_KEY,
       "content-type": "application/json",
       accept: "application/json",
     },
@@ -26,6 +26,7 @@ async function sendBrevoEmail(to, toName, subject, htmlContent) {
 }
 
 export default async function handler(req, res) {
+  // CORS
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -46,7 +47,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
-  if (!API_KEY) {
+  if (!BREVO_API_KEY) {
     return res.status(500).json({ error: "Clé Brevo non configurée" });
   }
 
@@ -62,6 +63,9 @@ export default async function handler(req, res) {
     const currentDate =
       now.toLocaleDateString("fr-FR") + " à " + now.toLocaleTimeString("fr-FR");
 
+    // ========================================
+    // EMAIL 1 : Au visiteur (confirmation)
+    // ========================================
     await sendBrevoEmail(
       email,
       fullName,
@@ -83,6 +87,9 @@ export default async function handler(req, res) {
       `,
     );
 
+    // ========================================
+    // EMAIL 2 : À l'admin (notification)
+    // ========================================
     await sendBrevoEmail(
       ADMIN_EMAIL,
       "Admin Musée",
