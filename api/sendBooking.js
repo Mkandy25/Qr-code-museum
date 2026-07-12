@@ -1,4 +1,4 @@
-const BREVO_API_KEY = process.env.BREVO_API_KEY || process.env.API_KEY;
+const API_KEY = process.env.API_KEY || process.env.API_KEY;
 const SENDER_EMAIL = process.env.SENDER_EMAIL || "andymbuyi08@gmail.com";
 const SENDER_NAME = process.env.SENDER_NAME || "Musée National de Lubumbashi";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08gmail.com";
@@ -7,7 +7,7 @@ async function sendBrevoEmail(to, toName, subject, htmlContent) {
   const response = await fetch("https://qr-code-museum.vercel.app/", {
     method: "POST",
     headers: {
-      "api-key": BREVO_API_KEY,
+      "api-key": API_KEY,
       "content-type": "application/json",
       accept: "application/json",
     },
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
-  if (!BREVO_API_KEY) {
+  if (!API_KEY) {
     return res.status(500).json({ error: "Clé Brevo non configurée" });
   }
 
