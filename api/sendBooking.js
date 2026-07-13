@@ -1,7 +1,7 @@
 const BREVO_API_KEY = process.env.API_KEY;
-const SENDER_EMAIL = process.env.SENDER_EMAIL || "mannenswana270@gmail.com";
+const SENDER_EMAIL = process.env.SENDER_EMAIL || "andymbuyi08@gmail.com";
 const SENDER_NAME = process.env.SENDER_NAME || "Musée National de Lubumbashi";
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "mannenswana270@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08@gmail.com";
 
 async function sendBrevoEmail(to, toName, subject, htmlContent) {
   const response = await fetch("https://api.brevo.com/v3/smtp/email", {
