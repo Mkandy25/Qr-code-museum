@@ -1,7 +1,7 @@
 const BREVO_API_KEY = process.env.API_KEY;
-const SENDER_EMAIL = process.env.SENDER_EMAIL || "andymbuyi08@gmail.com";
+const SENDER_EMAIL = process.env.SENDER_EMAIL || "mannenswana270@gmail.com";
 const SENDER_NAME = process.env.SENDER_NAME || "Musée National de Lubumbashi";
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "andymbuyi08@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "mannenswana270@gmail.com";
 
 async function sendBrevoEmail(to, toName, subject, htmlContent) {
   const response = await fetch("https://api.brevo.com/v3/smtp/email", {
@@ -69,15 +69,15 @@ export default async function handler(req, res) {
     await sendBrevoEmail(
       email,
       fullName,
-      "✅ Confirmation de réservation - Musée National de Lubumbashi",
+      "Confirmation de réservation - Musée National de Lubumbashi",
       `
         <h2>Bonjour ${fullName},</h2>
         <p>Votre réservation pour le Musée National de Lubumbashi a bien été confirmée !</p>
         <br>
-        <p><strong>📅 Date de visite :</strong> ${visitDate}</p>
-        <p><strong>🎫 Type de billet :</strong> ${ticketType}</p>
-        <p><strong>👤 Quantité :</strong> ${quantity}</p>
-        <p><strong>💰 Total :</strong> ${totalPrice} Fc</p>
+        <p><strong> Date de visite :</strong> ${visitDate}</p>
+        <p><strong> Type de billet :</strong> ${ticketType}</p>
+        <p><strong> Quantité :</strong> ${quantity}</p>
+        <p><strong> Total :</strong> ${totalPrice} Fc</p>
         <br>
         <p>Votre réservation est valable toute la journée du ${visitDate}.</p>
         <p>Merci de présenter cet email à l'entrée du musée.</p>
@@ -93,16 +93,16 @@ export default async function handler(req, res) {
     await sendBrevoEmail(
       ADMIN_EMAIL,
       "Admin Musée",
-      "📋 Nouvelle réservation - Musée National de Lubumbashi",
+      " Nouvelle réservation - Musée National de Lubumbashi",
       `
         <h2>Nouvelle réservation reçue !</h2>
         <br>
-        <p><strong>👤 Nom :</strong> ${fullName}</p>
-        <p><strong>📧 Email :</strong> ${email}</p>
-        <p><strong>📅 Date de visite :</strong> ${visitDate}</p>
-        <p><strong>🎫 Type de billet :</strong> ${ticketType}</p>
-        <p><strong>👤 Quantité :</strong> ${quantity}</p>
-        <p><strong>💰 Total :</strong> ${totalPrice} Fc</p>
+        <p><strong> Nom :</strong> ${fullName}</p>
+        <p><strong> Email :</strong> ${email}</p>
+        <p><strong> Date de visite :</strong> ${visitDate}</p>
+        <p><strong> Type de billet :</strong> ${ticketType}</p>
+        <p><strong> Quantité :</strong> ${quantity}</p>
+        <p><strong> Total :</strong> ${totalPrice} Fc</p>
         <br>
         <p><em>Réservation effectuée le ${currentDate}</em></p>
       `,
@@ -113,7 +113,7 @@ export default async function handler(req, res) {
       message: "Réservation confirmée ! Les emails ont été envoyés.",
     });
   } catch (error) {
-    console.error("❌ Erreur Brevo :", error);
+    console.error(" Erreur Brevo :", error);
     return res.status(500).json({
       error: "Erreur lors de l'envoi des emails",
       details: error.message,
